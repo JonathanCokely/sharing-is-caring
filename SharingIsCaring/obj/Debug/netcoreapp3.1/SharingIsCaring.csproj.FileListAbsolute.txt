@@ -33,16 +33,11 @@ C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netco
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\SharingIsCaring.pdb
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\SharingIsCaring.genruntimeconfig.cache
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\SharingIsCaring.csproj.CopyComplete
-C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
-C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
@@ -55,3 +50,7 @@ C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netco
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\SharingIsCaring.csproj.CoreCompileInputs.cache
+C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\SharingIsCaring.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
