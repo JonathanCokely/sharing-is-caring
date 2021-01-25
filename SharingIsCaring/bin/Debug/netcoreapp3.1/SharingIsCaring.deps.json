@@ -26,7 +26,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.10",
-          "Microsoft.AspNetCore.Identity.UI": "3.1.10",
+          "Microsoft.AspNetCore.Identity.UI": "3.1.1",
           "Microsoft.EntityFrameworkCore.Design": "3.1.10",
           "Microsoft.EntityFrameworkCore.Relational": "3.1.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.10",
@@ -404,7 +404,7 @@
       "Microsoft.AspNetCore.Http.Extensions/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.10",
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.1",
           "Microsoft.Net.Http.Headers": "2.2.0",
           "System.Buffers": "4.5.0"
         }
@@ -437,24 +437,24 @@
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Identity.UI/3.1.10": {
+      "Microsoft.AspNetCore.Identity.UI/3.1.1": {
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Embedded": "3.1.10",
+          "Microsoft.Extensions.FileProviders.Embedded": "3.1.1",
           "Microsoft.Extensions.Identity.Stores": "3.1.10",
           "Newtonsoft.Json": "12.0.2"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll": {
-            "assemblyVersion": "3.1.10.0",
-            "fileVersion": "3.100.1020.52004"
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.100.119.61510"
           },
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll": {
-            "assemblyVersion": "3.1.10.0",
-            "fileVersion": "3.100.1020.52004"
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.100.119.61510"
           },
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll": {
-            "assemblyVersion": "3.1.10.0",
-            "fileVersion": "3.100.1020.52004"
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.100.119.61510"
           }
         },
         "compile": {
@@ -707,28 +707,28 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Abstractions/3.1.10": {
+      "Microsoft.Extensions.FileProviders.Abstractions/3.1.1": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "3.1.10"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {
-            "assemblyVersion": "3.1.10.0",
-            "fileVersion": "3.100.1020.51904"
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.100.119.61404"
           }
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Embedded/3.1.10": {
+      "Microsoft.Extensions.FileProviders.Embedded/3.1.1": {
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.10"
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.1"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll": {
-            "assemblyVersion": "3.1.10.0",
-            "fileVersion": "3.100.1020.51904"
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.100.119.61404"
           }
         },
         "compile": {
@@ -739,7 +739,7 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.10",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.10",
-          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.10",
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.1",
           "Microsoft.Extensions.Logging.Abstractions": "3.1.10"
         }
       },
@@ -3316,12 +3316,12 @@
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/3.1.10",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.3.1.10.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Identity.UI/3.1.10": {
+    "Microsoft.AspNetCore.Identity.UI/3.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kd5gePvdZkYBmFetTi7IvvdqLQu0wueoY+EOQseo9oj9LduOmfjLhf3VPxyCIKqkjV+0afgoMN1vdTznRe9r0w==",
-      "path": "microsoft.aspnetcore.identity.ui/3.1.10",
-      "hashPath": "microsoft.aspnetcore.identity.ui.3.1.10.nupkg.sha512"
+      "sha512": "sha512-ZGK9dA7EdjGjwV9yPE9rl9czb8B7W085sOIBQzn6nEYV1bJ/qUXPqP+qJlA6BACwLIh5IySfAU4XYchwJMvkCw==",
+      "path": "microsoft.aspnetcore.identity.ui/3.1.1",
+      "hashPath": "microsoft.aspnetcore.identity.ui.3.1.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.WebUtilities/2.2.0": {
       "type": "package",
@@ -3456,19 +3456,19 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/3.1.10",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.3.1.10.nupkg.sha512"
     },
-    "Microsoft.Extensions.FileProviders.Abstractions/3.1.10": {
+    "Microsoft.Extensions.FileProviders.Abstractions/3.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Pwu/7fpw1G7WjO1DxPmGfrw6ciruiLHH6k26uNex9Sn/s229uKcwds7GTBUAPbpoh4MI3qo21nqmLBo3N7gVfg==",
-      "path": "microsoft.extensions.fileproviders.abstractions/3.1.10",
-      "hashPath": "microsoft.extensions.fileproviders.abstractions.3.1.10.nupkg.sha512"
+      "sha512": "sha512-V9WqFEKiUygbsNB3JUMUUJAoTlDxNqBwfybZTF7RbFCgbooFNyCscBOdiciomA785wiRoX/Uy/WIea9wzPBPgQ==",
+      "path": "microsoft.extensions.fileproviders.abstractions/3.1.1",
+      "hashPath": "microsoft.extensions.fileproviders.abstractions.3.1.1.nupkg.sha512"
     },
-    "Microsoft.Extensions.FileProviders.Embedded/3.1.10": {
+    "Microsoft.Extensions.FileProviders.Embedded/3.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6VDkmoJJagm5a3+XZnh+rMLE+ODtHCC3REIELk5rZ3ta4xrkFNY+9rt0ahP90Yr6QtpXFbHK/wx+OUSwCe1Yqg==",
-      "path": "microsoft.extensions.fileproviders.embedded/3.1.10",
-      "hashPath": "microsoft.extensions.fileproviders.embedded.3.1.10.nupkg.sha512"
+      "sha512": "sha512-+yygkjo94EkMggtsBkj/W3/OR/QTXrP+iGSrz3MkJJsd/lRJ3PrENeEkOowfqCAKg/U0AMJroAqI7U4g7i/+9w==",
+      "path": "microsoft.extensions.fileproviders.embedded/3.1.1",
+      "hashPath": "microsoft.extensions.fileproviders.embedded.3.1.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
       "type": "package",

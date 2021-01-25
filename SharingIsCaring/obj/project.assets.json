@@ -221,11 +221,11 @@
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Identity.UI/3.1.10": {
+      "Microsoft.AspNetCore.Identity.UI/3.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Embedded": "3.1.10",
-          "Microsoft.Extensions.Identity.Stores": "3.1.10",
+          "Microsoft.Extensions.FileProviders.Embedded": "3.1.1",
+          "Microsoft.Extensions.Identity.Stores": "3.1.1",
           "Newtonsoft.Json": "12.0.2"
         },
         "compile": {
@@ -496,10 +496,10 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Abstractions/3.1.10": {
+      "Microsoft.Extensions.FileProviders.Abstractions/3.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "3.1.10"
+          "Microsoft.Extensions.Primitives": "3.1.1"
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
@@ -508,10 +508,10 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Embedded/3.1.10": {
+      "Microsoft.Extensions.FileProviders.Embedded/3.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.10"
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.1"
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll": {}
@@ -2064,15 +2064,15 @@
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Identity.UI/3.1.10": {
-      "sha512": "kd5gePvdZkYBmFetTi7IvvdqLQu0wueoY+EOQseo9oj9LduOmfjLhf3VPxyCIKqkjV+0afgoMN1vdTznRe9r0w==",
+    "Microsoft.AspNetCore.Identity.UI/3.1.1": {
+      "sha512": "ZGK9dA7EdjGjwV9yPE9rl9czb8B7W085sOIBQzn6nEYV1bJ/qUXPqP+qJlA6BACwLIh5IySfAU4XYchwJMvkCw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.identity.ui/3.1.10",
+      "path": "microsoft.aspnetcore.identity.ui/3.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "THIRD-PARTY-NOTICES.TXT",
+        "THIRD-PARTY-NOTICES.txt",
         "build/Microsoft.AspNetCore.Identity.UI.props",
         "build/Microsoft.AspnetCore.Identity.UI.targets",
         "buildMultiTargeting/Microsoft.AspNetCore.Identity.UI.props",
@@ -2083,7 +2083,7 @@
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.xml",
-        "microsoft.aspnetcore.identity.ui.3.1.10.nupkg.sha512",
+        "microsoft.aspnetcore.identity.ui.3.1.1.nupkg.sha512",
         "microsoft.aspnetcore.identity.ui.nuspec",
         "staticwebassets/V3/css/site.css",
         "staticwebassets/V3/js/site.js",
@@ -2562,10 +2562,10 @@
         "microsoft.extensions.dependencyinjection.abstractions.nuspec"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Abstractions/3.1.10": {
-      "sha512": "Pwu/7fpw1G7WjO1DxPmGfrw6ciruiLHH6k26uNex9Sn/s229uKcwds7GTBUAPbpoh4MI3qo21nqmLBo3N7gVfg==",
+    "Microsoft.Extensions.FileProviders.Abstractions/3.1.1": {
+      "sha512": "V9WqFEKiUygbsNB3JUMUUJAoTlDxNqBwfybZTF7RbFCgbooFNyCscBOdiciomA785wiRoX/Uy/WIea9wzPBPgQ==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.abstractions/3.1.10",
+      "path": "microsoft.extensions.fileproviders.abstractions/3.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2574,14 +2574,14 @@
         "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
-        "microsoft.extensions.fileproviders.abstractions.3.1.10.nupkg.sha512",
+        "microsoft.extensions.fileproviders.abstractions.3.1.1.nupkg.sha512",
         "microsoft.extensions.fileproviders.abstractions.nuspec"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Embedded/3.1.10": {
-      "sha512": "6VDkmoJJagm5a3+XZnh+rMLE+ODtHCC3REIELk5rZ3ta4xrkFNY+9rt0ahP90Yr6QtpXFbHK/wx+OUSwCe1Yqg==",
+    "Microsoft.Extensions.FileProviders.Embedded/3.1.1": {
+      "sha512": "+yygkjo94EkMggtsBkj/W3/OR/QTXrP+iGSrz3MkJJsd/lRJ3PrENeEkOowfqCAKg/U0AMJroAqI7U4g7i/+9w==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.embedded/3.1.10",
+      "path": "microsoft.extensions.fileproviders.embedded/3.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2594,7 +2594,7 @@
         "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.xml",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.xml",
-        "microsoft.extensions.fileproviders.embedded.3.1.10.nupkg.sha512",
+        "microsoft.extensions.fileproviders.embedded.3.1.1.nupkg.sha512",
         "microsoft.extensions.fileproviders.embedded.nuspec",
         "tasks/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.Manifest.Task.dll"
       ]
@@ -6384,7 +6384,7 @@
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.10",
-      "Microsoft.AspNetCore.Identity.UI >= 3.1.10",
+      "Microsoft.AspNetCore.Identity.UI >= 3.1.1",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.10",
       "Microsoft.EntityFrameworkCore.Relational >= 3.1.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.10",
@@ -6440,7 +6440,7 @@
           },
           "Microsoft.AspNetCore.Identity.UI": {
             "target": "Package",
-            "version": "[3.1.10, )"
+            "version": "[3.1.1, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

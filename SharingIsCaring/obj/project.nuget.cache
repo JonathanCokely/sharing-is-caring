@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "S7SjgaJ717WRBbI3V7B7b62s4UjG71Jw4zflEeEwI+TTdOJUkoC5/xfEVTciKfxGUcM2jY2EmI2bMq2aAtv6uA==",
+  "dgSpecHash": "YQeiXXB4/AZj/lrvqmnzy55LDnKXhvkWPdQ9nButtv5lt0ZQraGEV+qR26G1tAspKCCBRmDUwzc+oOZSsdDscw==",
   "success": true,
   "projectFilePath": "C:\\Users\\JC032926\\Source\\Repos\\sharing-is-caring\\SharingIsCaring\\SharingIsCaring.csproj",
   "expectedPackageFiles": [
@@ -20,7 +20,7 @@
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.aspnetcore.identity\\2.2.0\\microsoft.aspnetcore.identity.2.2.0.nupkg.sha512",
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.10\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.10.nupkg.sha512",
-    "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\3.1.10\\microsoft.aspnetcore.identity.ui.3.1.10.nupkg.sha512",
+    "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\3.1.1\\microsoft.aspnetcore.identity.ui.3.1.1.nupkg.sha512",
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
@@ -40,8 +40,8 @@
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.10\\microsoft.extensions.configuration.binder.3.1.10.nupkg.sha512",
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.10\\microsoft.extensions.dependencyinjection.3.1.10.nupkg.sha512",
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.10\\microsoft.extensions.dependencyinjection.abstractions.3.1.10.nupkg.sha512",
-    "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.1.10\\microsoft.extensions.fileproviders.abstractions.3.1.10.nupkg.sha512",
-    "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\3.1.10\\microsoft.extensions.fileproviders.embedded.3.1.10.nupkg.sha512",
+    "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.1.1\\microsoft.extensions.fileproviders.abstractions.3.1.1.nupkg.sha512",
+    "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\3.1.1\\microsoft.extensions.fileproviders.embedded.3.1.1.nupkg.sha512",
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\2.2.0\\microsoft.extensions.hosting.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.extensions.identity.core\\3.1.10\\microsoft.extensions.identity.core.3.1.10.nupkg.sha512",
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.extensions.identity.stores\\3.1.10\\microsoft.extensions.identity.stores.3.1.10.nupkg.sha512",
