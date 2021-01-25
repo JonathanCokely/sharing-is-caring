@@ -20,5 +20,10 @@ namespace SharingIsCaring.Controllers
             AddUserViewModel addUserViewModel = new AddUserViewModel();
             return View(addUserViewModel);
         }
+
+        public IActionResult Search()
+        {
+            return View();
+        }
     }
 }
