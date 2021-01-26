@@ -15,6 +15,11 @@ namespace SharingIsCaring.Models
             TypeDescription = typedescription;
         }
 
+        public AssetType()
+        {
+
+        }
+
         public override string ToString()
         {
             return TypeDescription;
