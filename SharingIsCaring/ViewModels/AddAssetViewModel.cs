@@ -9,7 +9,6 @@ namespace SharingIsCaring.ViewModels
 {
     public class AddAssetViewModel
     {
-        [Required(ErrorMessage = "Must select a Brand")]
         public Brand BrandName { get; set; }
 
         [Required(ErrorMessage = "Must enter a Description")]
