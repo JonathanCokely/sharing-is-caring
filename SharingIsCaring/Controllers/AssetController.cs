@@ -7,7 +7,7 @@ using SharingIsCaring.ViewModels;
 
 namespace SharingIsCaring.Controllers
 {
-    public class UserController : Controller
+    public class AssetController : Controller
     {
         public IActionResult Index()
         {
@@ -17,7 +17,7 @@ namespace SharingIsCaring.Controllers
         
         public IActionResult Add()
         {
-            AddUserViewModel addUserViewModel = new AddUserViewModel();
+            AddAssetViewModel addUserViewModel = new AddAssetViewModel();
             return View(addUserViewModel);
         }
 
