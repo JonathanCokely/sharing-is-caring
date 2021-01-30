@@ -1,8 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<SharingIsCaring.Models.Asset>
 
 <h1 class="d-flex justify-content-center jumbotron">Asset Information</h1>
 <br />
@@ -11,8 +7,8 @@
     <table class="table">
         <tr>
             <th>Brand Name</th>
-            <th>Item Description</th>
-            <th>Item Type</th>
+            <th>Asset Description</th>
+            <th>Asset Type</th>
             <th>Serial Number</th>
         </tr>
         <tr>
@@ -23,15 +19,19 @@
         </tr>
     </table>
 </div>
-<a class="nav-link float-lg-none justify-content-center" asp-controller="Asset" asp-action="Add">Add an asset</a>
+<div class="text-center">
+    <a class="nav-link" asp-controller="Asset" asp-action="Add">Add an asset</a>
+    <a class="nav-link" asp-controller="Brand" asp-action="Add">Add a brand</a>
+    <a class="nav-link" asp-controller="AssetType" asp-action="Add">Add an asset type</a>
+</div>
 <br />
 <h2 class="d-flex justify-content-center">Borrowed Assets</h2>
 <div class="d-flex justify-content-center">
     <table class="table">
         <tr>
             <th>Brand Name</th>
-            <th>Item Description</th>
-            <th>Item Type</th>
+            <th>Asset Description</th>
+            <th>Asset Type</th>
             <th>Serial Number</th>
             <th>Checkout Date</th>
         </tr>

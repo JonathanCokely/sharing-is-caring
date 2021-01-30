@@ -11,14 +11,25 @@
 
 <form asp-controller="Asset" asp-action="Add" method="post">
     <div class="form-group">
+        <label>Brand Name</label>
+        <input asp-for="@Model.BrandName" />
+         <a class="nav-link" asp-controller="Brand" asp-action="Add">Add a brand</a>
+        <span asp-validation-for="@Model.BrandName"></span>
+    </div>
+    <div class="form-group">
         <label>Description</label>
         <input asp-for="@Model.Description" />
         <span asp-validation-for="@Model.Description"></span>
     </div>
+    <div>
+        <label>Asset Type</label>
+        <input asp-for="@Model.ItemType" />
+        <a class="nav-link" asp-controller="AssetType" asp-action="Add">Add an asset type</a>
+    </div>
     <div class="form-group">
-        <label>Brand Name</label>
-        <input asp-for="@Model.BrandName" />
-        <span asp-validation-for="@Model.BrandName"></span>
+        <label>Serial Number</label>
+        <input asp-for="@Model.SerialNumber" />
+        <span asp-validation-for="@Model.SerialNumber"></span>
     </div>
     <input type="submit" value="Submit" />
 </form>
