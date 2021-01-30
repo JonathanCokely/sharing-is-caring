@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SharingIsCaring.Data;
 
 namespace SharingIsCaring.Migrations
 {
     [DbContext(typeof(SharingDbContext))]
-    partial class SharingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210129010708_AddAssetModels")]
+    partial class AddAssetModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -240,36 +242,6 @@ namespace SharingIsCaring.Migrations
                     b.ToTable("Assets");
                 });
 
-            modelBuilder.Entity("SharingIsCaring.Models.AssetAssetType", b =>
-                {
-                    b.Property<int>("AssetId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AssetTypeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("AssetId", "AssetTypeId");
-
-                    b.HasIndex("AssetTypeId");
-
-                    b.ToTable("AssetAssetTypes");
-                });
-
-            modelBuilder.Entity("SharingIsCaring.Models.AssetBrand", b =>
-                {
-                    b.Property<int>("AssetId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BrandId")
-                        .HasColumnType("int");
-
-                    b.HasKey("AssetId", "BrandId");
-
-                    b.HasIndex("BrandId");
-
-                    b.ToTable("AssetBrands");
-                });
-
             modelBuilder.Entity("SharingIsCaring.Models.AssetType", b =>
                 {
                     b.Property<int>("Id")
@@ -358,36 +330,6 @@ namespace SharingIsCaring.Migrations
                     b.HasOne("SharingIsCaring.Models.AssetType", "ItemType")
                         .WithMany()
                         .HasForeignKey("ItemTypeId");
-                });
-
-            modelBuilder.Entity("SharingIsCaring.Models.AssetAssetType", b =>
-                {
-                    b.HasOne("SharingIsCaring.Models.Asset", "Asset")
-                        .WithMany()
-                        .HasForeignKey("AssetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SharingIsCaring.Models.AssetType", "AssetType")
-                        .WithMany()
-                        .HasForeignKey("AssetTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SharingIsCaring.Models.AssetBrand", b =>
-                {
-                    b.HasOne("SharingIsCaring.Models.Asset", "Asset")
-                        .WithMany()
-                        .HasForeignKey("AssetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SharingIsCaring.Models.Brand", "Brand")
-                        .WithMany()
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

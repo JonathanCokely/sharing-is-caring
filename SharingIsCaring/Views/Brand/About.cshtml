@@ -1,0 +1,18 @@
+﻿@model List<SharingIsCaring.Models.AssetBrand>
+
+@if (Model.Count == 0)
+{
+    <h1>No assets with the given skill!</h1>
+}
+else
+{
+    <h1>Jobs with the Skill: @Model[0].Brand.Name</h1>
+
+    <ul>
+        @foreach (var assetBrand in Model)
+        {
+            <li>@assetBrand.Asset.Description</li>
+        }
+    </ul>
+
+}
