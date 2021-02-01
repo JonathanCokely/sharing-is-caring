@@ -29,12 +29,12 @@ namespace SharingIsCaring.Controllers
         {
             List<Brand> brands = context.Brands.ToList();
             List<AssetType> assetTypes = context.AssetTypes.ToList();
-            AddAssetViewModel addAssetViewModel = new AddAssetViewModel();
+            AddAssetViewModel addAssetViewModel = new AddAssetViewModel(brands, assetTypes);
             return View(addAssetViewModel);
         }
 
         [HttpPost]
-        public IActionResult ProcessAddAssetForm(AddAssetViewModel addAssetViewModel, string[] selectedBrands, string[] selectedAssetTypes)
+        public IActionResult ProcessAddAssetForm(AddAssetViewModel addAssetViewModel)
         {
 
             if (ModelState.IsValid)
@@ -44,21 +44,6 @@ namespace SharingIsCaring.Controllers
                     Description = addAssetViewModel.Description,
                     SerialNumber = addAssetViewModel.SerialNumber
                 };
-
-                foreach (string asset in selectedBrands)
-                {
-                    Brand theBrand = context.Brands.ToList().Find(x => x.Name == asset);
-                    AssetBrand theAssetBrand = new AssetBrand() { AssetId = theAsset.Id, Asset = theAsset, BrandId = theBrand.Id, Brand = theBrand };
-                    context.AssetBrands.Add(theAssetBrand);
-                }
-
-                foreach (string asset in selectedAssetTypes)
-                {
-                    AssetType theAssetType = context.AssetTypes.ToList().Find(x => x.TypeDescription == asset);
-                    AssetAssetType theAssetAssetType = new AssetAssetType() { AssetId = theAsset.Id, Asset = theAsset, AssetTypeId = theAssetType.Id, AssetType = theAssetType };
-                    context.AssetAssetTypes.Add(theAssetAssetType);
-                }
-
 
                 context.Assets.Add(theAsset);
                 context.SaveChanges();

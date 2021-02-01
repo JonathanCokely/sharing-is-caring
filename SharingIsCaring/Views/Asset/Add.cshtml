@@ -1,34 +1,27 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-
-@model SharingIsCaring.ViewModels.AddAssetViewModel
-
-@{
-}
+﻿@model SharingIsCaring.ViewModels.AddAssetViewModel
 
 <h2>Add an Asset</h2>
 
-<form asp-controller="Asset" asp-action="Add" method="post">
+<form asp-controller="Asset" asp-action="ProcessAddJob" method="post">
     <div class="form-group">
-        <label>Brand Name</label>
-        <input asp-for="@Model.BrandName" />
-         <a class="nav-link" asp-controller="Brand" asp-action="Add">Add a brand</a>
+        <label><strong>Brand Name</strong></label>
+        <select class="form-control" style="max-width: 500px" asp-for="@Model.BrandName" asp-items="Model.BrandList"></select>
+         <a asp-controller="Brand" asp-action="Add">Add a brand</a>
         <span asp-validation-for="@Model.BrandName"></span>
     </div>
     <div class="form-group">
-        <label>Description</label>
-        <input asp-for="@Model.Description" />
+        <label><strong>Description</strong></label>
+        <input class="form-control" style="max-width:500px" asp-for="@Model.Description" />
         <span asp-validation-for="@Model.Description"></span>
     </div>
     <div>
-        <label>Asset Type</label>
-        <input asp-for="@Model.ItemType" />
-        <a class="nav-link" asp-controller="AssetType" asp-action="Add">Add an asset type</a>
+        <label><strong>Asset Type</strong></label>
+        <select class="form-control" style="max-width:500px" asp-for="@Model.ItemType" asp-items="Model.AssetTypeList"></select>
+        <a asp-controller="AssetType" asp-action="Add">Add an asset type</a>
     </div>
     <div class="form-group">
-        <label>Serial Number</label>
-        <input asp-for="@Model.SerialNumber" />
+        <label><strong>Serial Number</strong></label>
+        <input class="form-control" style="max-width:500px" asp-for="@Model.SerialNumber" />
         <span asp-validation-for="@Model.SerialNumber"></span>
     </div>
     <input type="submit" value="Submit" />

@@ -27,7 +27,29 @@ namespace SharingIsCaring.ViewModels
             BrandList = new List<SelectListItem>();
             AssetTypeList = new List<SelectListItem>();
 
+            foreach (var brand in brands)
+            {
+                BrandList.Add(
+                    new SelectListItem
+                    {
+                        Value = brand.Id.ToString(),
+                        Text = brand.Name
+                    }
+                );
+            }
+
+            foreach (var assetType in assetTypes)
+            {
+                AssetTypeList.Add(
+                    new SelectListItem
+                    {
+                        Value = assetType.Id.ToString(),
+                        Text = assetType.TypeDescription
+                    }
+                );
+            }
         }
+
         public AddAssetViewModel() {}
     }   
 }
