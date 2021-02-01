@@ -1,0 +1,46 @@
+﻿@model List<SharingIsCaring.Models.Asset>
+
+<h1 class="d-flex justify-content-center jumbotron">Asset Information</h1>
+<br />
+<h2 class="d-flex justify-content-center">My Assets</h2>
+<div class="d-flex justify-content-center">
+    <table class="table">
+        <tr>
+            <th>Brand Name</th>
+            <th>Asset Description</th>
+            <th>Asset Type</th>
+            <th>Serial Number</th>
+        </tr>
+        <tr>
+            <td>Dewalt</td>
+            <td>20V Cordless Drill</td>
+            <td>Power Tool</td>
+            <td>DW123456</td>
+        </tr>
+    </table>
+</div>
+<div class="text-center">
+    <a class="nav-link" asp-controller="Asset" asp-action="Add">Add an asset</a>
+    <a class="nav-link" asp-controller="Brand" asp-action="Index">View brands</a>
+    <a class="nav-link" asp-controller="AssetType" asp-action="Index">View asset types</a>
+</div>
+<br />
+<h2 class="d-flex justify-content-center">Borrowed Assets</h2>
+<div class="d-flex justify-content-center">
+    <table class="table">
+        <tr>
+            <th>Brand Name</th>
+            <th>Asset Description</th>
+            <th>Asset Type</th>
+            <th>Serial Number</th>
+            <th>Checkout Date</th>
+        </tr>
+        <tr>
+            <td>KitchenAid</td>
+            <td>Stand Mixer</td>
+            <td>Kitchen Appliance</td>
+            <td>KA123456</td>
+            <td>31 Dec 2020</td>
+        </tr>
+    </table>
+</div>

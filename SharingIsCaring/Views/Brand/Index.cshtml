@@ -1,0 +1,21 @@
+﻿@model List<SharingIsCaring.Models.Brand>
+
+<h1 class="d-flex justify-content-center jumbotron">Brands</h1>
+
+<p><a asp-controller="Brand" asp-action="Add">Add a Brand</a></p>
+
+@if (Model.Count == 0)
+{
+    <p>No brands have been added!</p>
+}
+else
+{
+    <div>
+        <ul>
+            @foreach (Brand brand in Model)
+            {
+                <li>@brand.Name</li>
+            }
+        </ul>
+    </div>
+}

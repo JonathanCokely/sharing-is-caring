@@ -1,0 +1,12 @@
+﻿@model SharingIsCaring.Models.AssetType
+
+<h1>Add an Asset Type</h1>
+
+<form asp-controller="AssetType" asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="TypeDescription">Asset Type</label>
+        <input asp-for="TypeDescription" />
+        <span asp-validation-for="TypeDescription"></span>
+    </div>
+    <input type="submit" value="Submit" />
+</form>
