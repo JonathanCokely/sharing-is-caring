@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using SharingIsCaring.Areas.Identity.Data;
 using SharingIsCaring.Data;
 using SharingIsCaring.Models;
 using SharingIsCaring.ViewModels;
@@ -12,6 +15,7 @@ namespace SharingIsCaring.Controllers
     public class AssetController : Controller
     {
         private readonly SharingDbContext context;
+        private readonly UserManager<SharingIsCaringUser> _userManager;
 
         public AssetController(SharingDbContext dbContext)
         {
@@ -41,8 +45,11 @@ namespace SharingIsCaring.Controllers
             {
                 Asset theAsset = new Asset
                 {
+                    BrandId = addAssetViewModel.BrandId,
                     Description = addAssetViewModel.Description,
+                    ItemTypeId = addAssetViewModel.ItemTypeId,
                     SerialNumber = addAssetViewModel.SerialNumber
+                    //OwnerId = _userManager.GetUserAsync(User).Id
                 };
 
                 context.Assets.Add(theAsset);

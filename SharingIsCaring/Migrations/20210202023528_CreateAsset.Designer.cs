@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SharingIsCaring.Data;
 
 namespace SharingIsCaring.Migrations
 {
     [DbContext(typeof(SharingDbContext))]
-    partial class SharingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210202023528_CreateAsset")]
+    partial class CreateAsset
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -219,13 +221,19 @@ namespace SharingIsCaring.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("BrandId")
+                    b.Property<int>("BorrowerId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BrandNameId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("ItemTypeId")
+                    b.Property<int?>("ItemTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OwnerId")
                         .HasColumnType("int");
 
                     b.Property<string>("SerialNumber")
@@ -233,7 +241,7 @@ namespace SharingIsCaring.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BrandId");
+                    b.HasIndex("BrandNameId");
 
                     b.HasIndex("ItemTypeId");
 
@@ -353,15 +361,11 @@ namespace SharingIsCaring.Migrations
                 {
                     b.HasOne("SharingIsCaring.Models.Brand", "BrandName")
                         .WithMany()
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BrandNameId");
 
                     b.HasOne("SharingIsCaring.Models.AssetType", "ItemType")
                         .WithMany()
-                        .HasForeignKey("ItemTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ItemTypeId");
                 });
 
             modelBuilder.Entity("SharingIsCaring.Models.AssetAssetType", b =>

@@ -10,17 +10,24 @@ namespace SharingIsCaring.Models
     {
         public int Id { get; set; }
         public Brand BrandName { get; set; }
+        public int BrandId { get; set; }
         public string Description { get; set; }
         public AssetType ItemType { get; set; }
+        public int ItemTypeId { get; set; }
         public string SerialNumber { get; set; }
+        //public int OwnerId { get; set; }
+        //public int BorrowerId { get; set; }
 
 
-        public Asset(Brand brandname, string description, AssetType itemtype, string serialnumber)
+        public Asset(string description, string serialnumber)
         {
-            BrandName = brandname;
             Description = description;
-            ItemType = itemtype;
             SerialNumber = serialnumber;
+        }
+
+        public Asset(string description)
+        {
+            Description = description;
         }
 
         public Asset()

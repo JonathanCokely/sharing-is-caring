@@ -10,15 +10,14 @@ namespace SharingIsCaring.ViewModels
 {
     public class AddAssetViewModel
     {
-        public Brand BrandName { get; set; }
+        public int BrandId { get; set; }
 
         [Required(ErrorMessage = "Must enter a Description")]
         public string Description { get; set; }
         [Required(ErrorMessage = "Must select an Item Type")]
-        public AssetType ItemType { get; set; }
+        public int ItemTypeId { get; set; }
         public List<SelectListItem> BrandList {get; set; } 
         public List<SelectListItem> AssetTypeList { get; set; }
-
 
         public string SerialNumber { get; set; }
 

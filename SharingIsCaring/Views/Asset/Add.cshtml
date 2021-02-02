@@ -2,21 +2,21 @@
 
 <h2>Add an Asset</h2>
 
-<form asp-controller="Asset" asp-action="ProcessAddJob" method="post">
+<form asp-controller="Asset" asp-action="ProcessAddAssetForm" method="post">
     <div class="form-group">
         <label><strong>Brand Name</strong></label>
-        <select class="form-control" style="max-width: 500px" asp-for="@Model.BrandName" asp-items="Model.BrandList"></select>
+        <select class="form-control" style="max-width: 500px" asp-for="@Model.BrandId" asp-items="Model.BrandList"></select>
          <a asp-controller="Brand" asp-action="Add">Add a brand</a>
-        <span asp-validation-for="@Model.BrandName"></span>
+        <span asp-validation-for="@Model.BrandId"></span>
     </div>
     <div class="form-group">
         <label><strong>Description</strong></label>
         <input class="form-control" style="max-width:500px" asp-for="@Model.Description" />
         <span asp-validation-for="@Model.Description"></span>
     </div>
-    <div>
+    <div class="form-group">
         <label><strong>Asset Type</strong></label>
-        <select class="form-control" style="max-width:500px" asp-for="@Model.ItemType" asp-items="Model.AssetTypeList"></select>
+        <select class="form-control" style="max-width:500px" asp-for="@Model.ItemTypeId" asp-items="Model.AssetTypeList"></select>
         <a asp-controller="AssetType" asp-action="Add">Add an asset type</a>
     </div>
     <div class="form-group">
@@ -24,5 +24,5 @@
         <input class="form-control" style="max-width:500px" asp-for="@Model.SerialNumber" />
         <span asp-validation-for="@Model.SerialNumber"></span>
     </div>
-    <input type="submit" value="Submit" />
+    <input type="submit"/>
 </form>
