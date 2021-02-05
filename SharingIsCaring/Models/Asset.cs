@@ -15,7 +15,7 @@ namespace SharingIsCaring.Models
         public AssetType ItemType { get; set; }
         public int ItemTypeId { get; set; }
         public string SerialNumber { get; set; }
-        //public int OwnerId { get; set; }
+        public string OwnerId { get; set; }
         //public int BorrowerId { get; set; }
 
 

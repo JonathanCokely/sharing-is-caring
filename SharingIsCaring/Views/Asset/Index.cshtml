@@ -1,4 +1,11 @@
-﻿@model List<SharingIsCaring.Models.Asset>
+﻿@using Microsoft.AspNetCore.Identity
+@using SharingIsCaring.Areas.Identity.Data
+@using SharingIsCaring.Areas.Identity.Pages
+
+@inject UserManager<IdentityUser> UserManager
+
+@model List<SharingIsCaring.Models.Asset>
+
 
 <h1 class="d-flex justify-content-center jumbotron">Asset Information</h1>
 <br />
@@ -11,12 +18,21 @@
             <th>Asset Type</th>
             <th>Serial Number</th>
         </tr>
-        <tr>
-            <td>Dewalt</td>
-            <td>20V Cordless Drill</td>
-            <td>Power Tool</td>
-            <td>DW123456</td>
-        </tr>
+
+        @foreach (Asset asset in Model)
+        {
+            @if (asset.OwnerId == UserManager.GetUserId(User))
+            {
+
+                <tr>
+                    <td>@asset.BrandId</td>
+                    <td>@asset.Description</td>
+                    <td>@asset.ItemTypeId</td>
+                    <td>@asset.SerialNumber</td>
+                </tr>
+            }
+        }
+
     </table>
 </div>
 <div class="text-center">
