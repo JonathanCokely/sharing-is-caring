@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SharingIsCaring.Areas.Identity.Data;
 using SharingIsCaring.Data;
 using SharingIsCaring.Models;
@@ -69,7 +70,37 @@ namespace SharingIsCaring.Controllers
 
         public IActionResult Search()
         {
-            return View();
+            List<Brand> brands = context.Brands.ToList();
+            List<AssetType> assetTypes = context.AssetTypes.ToList();
+            List<Asset> assets = new List<Asset>();
+            SearchAssetViewModel searchAssetViewModel = new SearchAssetViewModel(brands, assetTypes, assets);
+            return View(searchAssetViewModel);
+        }
+
+        public IActionResult Results(string searchDescription)
+        {
+            List<Brand> brands = context.Brands.ToList();
+            List<AssetType> assetTypes = context.AssetTypes.ToList();
+            List<Asset> assets = new List<Asset>();
+
+            if (!string.IsNullOrEmpty(searchDescription))
+            {
+                foreach (Asset asset in context.Assets)
+                {
+                    assets.Add(asset);
+                }
+            }
+
+            else
+            {
+                foreach (Asset asset in context.Assets)
+                {
+                    assets.Add(asset);
+                }
+            }
+
+            SearchAssetViewModel newSearchAssetViewModel = new SearchAssetViewModel(brands, assetTypes, assets);
+            return View("Search", newSearchAssetViewModel);
         }
     }
 }
