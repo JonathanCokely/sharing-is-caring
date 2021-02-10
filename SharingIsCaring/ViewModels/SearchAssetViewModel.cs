@@ -18,6 +18,7 @@ namespace SharingIsCaring.ViewModels
         public List<SelectListItem> BrandList { get; set; }
         public List<SelectListItem> AssetTypeList { get; set; }
         public List<Asset> AssetList { get; set; }
+        public string SearchBrand { get; set; }
 
         public SearchAssetViewModel(List<Brand> brands, List<AssetType> assetTypes, List<Asset> assets)
         {

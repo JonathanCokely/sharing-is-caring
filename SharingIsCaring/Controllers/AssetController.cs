@@ -77,27 +77,31 @@ namespace SharingIsCaring.Controllers
             return View(searchAssetViewModel);
         }
 
-        public IActionResult Results(string searchDescription)
+        public IActionResult Results(string searchDescription, string searchBrand)
         {
             List<Brand> brands = context.Brands.ToList();
             List<AssetType> assetTypes = context.AssetTypes.ToList();
-            List<Asset> assets = new List<Asset>();
+            List<Asset> assets = context.Assets.ToList();
 
+            //Filter results by searching description
             if (!string.IsNullOrEmpty(searchDescription))
             {
-                foreach (Asset asset in context.Assets)
-                {
-                    assets.Add(asset);
-                }
+                assets = assets.Where(x => x.Description.Contains(searchDescription)).ToList();
             }
 
-            else
+            if(!string.IsNullOrEmpty(searchBrand))
             {
-                foreach (Asset asset in context.Assets)
-                {
-                    assets.Add(asset);
-                }
+                assets = assets.Where(x => x.BrandId.ToString()==searchBrand).ToList();
             }
+
+
+            //else
+            //{
+            //    foreach (Asset asset in context.Assets)
+            //    {
+            //        assets.Add(asset);
+            //    }
+            //}
 
             SearchAssetViewModel newSearchAssetViewModel = new SearchAssetViewModel(brands, assetTypes, assets);
             return View("Search", newSearchAssetViewModel);
