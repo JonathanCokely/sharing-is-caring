@@ -13,12 +13,11 @@ namespace SharingIsCaring.ViewModels
         public int BrandId { get; set; }
         public AssetType ItemType { get; set; }
         public int ItemTypeId { get; set; }
-        public string Description { get; set; }
-        public string SerialNumber { get; set; }
         public List<SelectListItem> BrandList { get; set; }
         public List<SelectListItem> AssetTypeList { get; set; }
         public List<Asset> AssetList { get; set; }
         public string SearchBrand { get; set; }
+        public string SearchItemType { get; set; }
 
         public SearchAssetViewModel(List<Brand> brands, List<AssetType> assetTypes, List<Asset> assets)
         {

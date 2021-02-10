@@ -9,14 +9,14 @@
             <select class="form-control" style="max-width: 500px" asp-for="SearchBrand" asp-items="Model.BrandList">
                  <option value="">All</option>
             </select>
-                @*<label><strong>Asset Type</strong></label>
-                <select class="form-control" style="max-width:500px" asp-for="@Model.ItemTypeId" asp-items="Model.AssetTypeList">
-                    <option value="">All</option>
-                </select>*@
+            <label><strong>Asset Type</strong></label>
+            <select class="form-control" style="max-width:500px" asp-for="SearchItemType" asp-items="Model.AssetTypeList">
+                 <option value="">All</option>
+            </select>
             <label><strong>Description</strong></label>
             <input class="form-control" style="max-width:500px" name="searchDescription" />
-            @*<label><strong>Serial Number</strong></label>
-            <input class="form-control" style="max-width:500px" name="searchSerialNumber" />*@
+            <label><strong>Serial Number</strong></label>
+            <input class="form-control" style="max-width:500px" name="searchSerialNumber" />
         </span>
     </div>
     <input type="submit" value="search" />
@@ -32,6 +32,7 @@
             <tr>
                 <th>Brand</th>
                 <th>Description</th>
+                <th>Item Type</th>
             </tr>
         </thead>
         @foreach (var asset in Model.AssetList)
@@ -39,6 +40,7 @@
             <tr>
                 <td>@asset.BrandName.ToString()</td>
                 <td>@asset.Description</td>
+                <td>@asset.ItemType.ToString()</td>
             </tr>
         }
     </table>
