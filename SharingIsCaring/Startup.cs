@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SharingIsCaring.Data;
+using SharingIsCaring.Hubs.ChatHub;
 
 namespace SharingIsCaring
 {
@@ -33,6 +34,7 @@ namespace SharingIsCaring
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddHttpContextAccessor();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,7 +55,6 @@ namespace SharingIsCaring
 
             app.UseRouting();
             app.UseAuthentication();
-            //app.UseMvc();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -62,6 +63,7 @@ namespace SharingIsCaring
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<MessageHub>("/messageHub");
             });
         }
     }
