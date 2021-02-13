@@ -1,4 +1,10 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@using SharingIsCaring.Models
+@using Microsoft.AspNetCore.Identity
+@model SharingIsCaring.Models.Messaging
 
 @inject UserManager<IdentityUser> UserManager
 
@@ -20,3 +26,30 @@
         </tr>
     </table>
 </div>
+
+
+<h1>Index</h1>
+@using (Html.BeginForm("Index", "Admin", FormMethod.Post, new { id = "Article" }))
+{
+    <div class="row">
+        <div class="col-6">
+            Article Heading
+        </div>
+        <div class="col-6">
+            <input type="text" id="articleHeading" name="articleHeading" />
+            @Html.TextBoxFor(model => Model.MessageSubject, new { @maxlength = "50" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            Article Content
+        </div>
+        <div class="col-6">
+            @Html.TextBoxFor(model => Model.MessageBody, new { @maxlength = "100" })
+        </div>
+    </div>
+    <div>
+        <button type="submit" id="Add" value="Add" />
+    </div>
+}
+

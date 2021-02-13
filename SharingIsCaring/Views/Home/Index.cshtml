@@ -7,3 +7,18 @@
     <p> Sharing Is Caring is a web-based application that helps neighbors share belongings.</p>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<div class="text-center">
+    <h1 class="display-4">Testing SignalR</h1>
+    <div id="messageList"></div>
+</div>
+<script>
+    function ready() {
+
+    }
+    //Replace with userID from Identity UserManager; random number between 1 and 100 for demo
+    let userId = Math.floor((Math.random() * 100) + 1);
+    document.addEventListener("DOMContentLoaded", ready);
+</script>
+<script src=”~/lib/signalr/signalr.js”></script>
+<script src=”~/js/signalRReqHandler.js”></script>

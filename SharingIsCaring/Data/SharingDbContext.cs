@@ -16,6 +16,7 @@ namespace SharingIsCaring.Data
         public DbSet<Brand> Brands { get; set; }
         public DbSet<AssetBrand> AssetBrands { get; set; }
         public DbSet<AssetAssetType> AssetAssetTypes { get; set; }
+        public DbSet<Messaging> Messages { get; set; }
 
         public SharingDbContext(DbContextOptions<SharingDbContext> options)
             : base(options)

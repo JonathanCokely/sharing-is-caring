@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using SharingIsCaring.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,9 @@ namespace SharingIsCaring.Hubs.ChatHub
 {
     public class MessageHub : Hub
     {
-        public async Task SendMessage(string user, string message)
+        public async Task SendMessage(Messaging message)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message);
+            await Clients.All.SendAsync("ReceiveMessage", message);
         }
     }
 }

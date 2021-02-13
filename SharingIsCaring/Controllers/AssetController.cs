@@ -18,25 +18,25 @@ namespace SharingIsCaring.Controllers
 {
     public class AssetController : Controller
     {
-        private readonly SharingDbContext context;
+        private readonly SharingDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         public AssetController(SharingDbContext dbContext, UserManager<IdentityUser> userManager)
         {
-            context = dbContext;
+            _context = dbContext;
             _userManager = userManager;
         }
 
         public IActionResult Index()
         {
-            List<Asset> assets = context.Assets.ToList();
+            List<Asset> assets = _context.Assets.ToList();
             return View(assets);
         }
 
         
         public IActionResult Add()
         {
-            List<Brand> brands = context.Brands.ToList();
-            List<AssetType> assetTypes = context.AssetTypes.ToList();
+            List<Brand> brands = _context.Brands.ToList();
+            List<AssetType> assetTypes = _context.AssetTypes.ToList();
             AddAssetViewModel addAssetViewModel = new AddAssetViewModel(brands, assetTypes);
             return View(addAssetViewModel);
         }
@@ -55,14 +55,14 @@ namespace SharingIsCaring.Controllers
                     OwnerId = _userManager.GetUserId(User)
                 };
 
-                context.Assets.Add(theAsset);
-                context.SaveChanges();
+                _context.Assets.Add(theAsset);
+                _context.SaveChanges();
 
                 return Redirect("/Asset");
             }
 
-            List<Brand> brands = context.Brands.ToList();
-            List<AssetType> assetTypes = context.AssetTypes.ToList();
+            List<Brand> brands = _context.Brands.ToList();
+            List<AssetType> assetTypes = _context.AssetTypes.ToList();
             AddAssetViewModel addNewViewModel = new AddAssetViewModel(brands, assetTypes);
 
             return View("Add", addNewViewModel);
@@ -70,8 +70,8 @@ namespace SharingIsCaring.Controllers
 
         public IActionResult Search()
         {
-            List<Brand> brands = context.Brands.ToList();
-            List<AssetType> assetTypes = context.AssetTypes.ToList();
+            List<Brand> brands = _context.Brands.ToList();
+            List<AssetType> assetTypes = _context.AssetTypes.ToList();
             List<Asset> assets = new List<Asset>();
             SearchAssetViewModel searchAssetViewModel = new SearchAssetViewModel(brands, assetTypes, assets);
             return View(searchAssetViewModel);
@@ -79,9 +79,9 @@ namespace SharingIsCaring.Controllers
 
         public IActionResult Results(string searchSerialNumber, string searchDescription, string searchBrand, string searchItemType)
         {
-            List<Brand> brands = context.Brands.ToList();
-            List<AssetType> assetTypes = context.AssetTypes.ToList();
-            List<Asset> assets = context.Assets.ToList();
+            List<Brand> brands = _context.Brands.ToList();
+            List<AssetType> assetTypes = _context.AssetTypes.ToList();
+            List<Asset> assets = _context.Assets.ToList();
 
             //Filter results by searching serial number
             if (!string.IsNullOrEmpty(searchSerialNumber))
