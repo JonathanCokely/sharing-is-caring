@@ -30,7 +30,7 @@ namespace SharingIsCaring.Controllers
         public IActionResult Index()
         {
             List<Messaging> messages = _context.Messages.ToList();
-            return View(messages);
+            return View();
         }
 
         [HttpPost]
