@@ -1,7 +1,48 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model SharingIsCaring.ViewModels.SearchAssetViewModel
+
+<h2>Search Assets:</h2>
+
+<form asp-controller="Asset" asp-action="Results" method="get">
+    <div class="form-group">
+        <span>
+            <label><strong>Brand Name</strong></label>
+            <select class="form-control" style="max-width: 500px" asp-for="SearchBrand" asp-items="Model.BrandList">
+                 <option value="">All</option>
+            </select>
+            <label><strong>Asset Type</strong></label>
+            <select class="form-control" style="max-width:500px" asp-for="SearchItemType" asp-items="Model.AssetTypeList">
+                 <option value="">All</option>
+            </select>
+            <label><strong>Description</strong></label>
+            <input class="form-control" style="max-width:500px" name="searchDescription" />
+            <label><strong>Serial Number</strong></label>
+            <input class="form-control" style="max-width:500px" name="searchSerialNumber" />
+        </span>
+    </div>
+    <input type="submit" value="search" />
+</form>
+
+<br />
+
+@if (Model.AssetList.Count > 0)
+{
+    <h3>Results:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Description</th>
+                <th>Item Type</th>
+            </tr>
+        </thead>
+        @foreach (var asset in Model.AssetList)
+        {
+            <tr>
+                <td>@asset.BrandName.ToString()</td>
+                <td>@asset.Description</td>
+                <td>@asset.ItemType.ToString()</td>
+            </tr>
+        }
+    </table>
 }
 
-<h1 class="d-flex justify-content-center jumbotron">Asset Search</h1>
