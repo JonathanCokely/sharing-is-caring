@@ -1,0 +1,17 @@
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# NuGet Packages
+*.nupkg
+
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+
+# Visual Studio
+.vs/
+
+# bin, obj folder
+./SharingIsCaring/bin
+./SharingIsCaring/obj
