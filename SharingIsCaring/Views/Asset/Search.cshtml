@@ -33,6 +33,7 @@
                 <th>Brand</th>
                 <th>Description</th>
                 <th>Item Type</th>
+                <th> </th>
             </tr>
         </thead>
         @foreach (var asset in Model.AssetList)
@@ -41,6 +42,11 @@
                 <td>@asset.BrandName.ToString()</td>
                 <td>@asset.Description</td>
                 <td>@asset.ItemType.ToString()</td>
+                <td>
+                    <form asp-controller="AssetRequest" asp-action="RequestAsset" method="post">
+                        <button class="btn-link" type="submit" name="SearchAsset" value="@asset.Id">Request</button>
+                    </form>
+                </td>
             </tr>
         }
     </table>
