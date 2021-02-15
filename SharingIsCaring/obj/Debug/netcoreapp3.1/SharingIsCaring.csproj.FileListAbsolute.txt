@@ -103,3 +103,4 @@ C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netco
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\Brand\Index.cshtml.g.cs
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\AssetType\Add.cshtml.g.cs
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\AssetType\Index.cshtml.g.cs
+C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\AssetRequest\Index.cshtml.g.cs
