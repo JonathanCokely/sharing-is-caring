@@ -2,29 +2,29 @@
 
 <h2>Request an Asset</h2>
 
-<form asp-controller="AssetRequest" asp-action="ProcessAssetRequest">
-    <div class="form-group">
+<form asp-controller="AssetRequest" asp-action="ProcessAssetRequest" method="post">
+    @*<div class="form-group">
         <label><strong>Asset</strong></label>
-        <input class="form-control" id="assetId" style="max-width:100px" asp-for="@Model.Asset" value="@Model.Asset.Id" />
-        <span asp-validation-for="@Model.Asset"></span>
-    </div>
+        <input class="form-control" style="max-width:100px" asp-for="@Model.AssetId" value="@Model.Asset.Id" />
+        <span asp-validation-for="@Model.AssetId"></span>
+    </div>*@
     <div class="form-group">
         <label><strong>Subject</strong></label>
-        <input class="form-control" id="requestSubject" style="max-width:800px" asp-for="@Model.Subject" />
+        <input class="form-control" style="max-width:800px" name="Subject" asp-for="@Model.Subject" value="Request to Borrow: @Model.Asset.Description"/>
         <span asp-validation-for="@Model.Subject"></span>
     </div>
     <div class="form-group">
-        <label><strong>Details</strong></label>
-        <input class="form-control" id="requestBody" style="max-width:800px; height: auto" asp-for="@Model.Body" />
+        <label><strong>Additional Details?</strong></label>
+        <textarea class="form-control" id="requestBody" style="max-width: 800px" asp-for="@Model.Body"></textarea>
     </div>
     <div class="form-group">
         <label><strong>Checkout Date:</strong></label>
-        <input class="form-control" id="checkoutDate" style="max-width: 300px" type="date" asp-for="@Model.FromDate" />
+        <input class="form-control" id="checkoutDate" style="max-width: 300px" type="date" asp-for="@Model.FromDate" value="@DateTime.Today"/>
         <span asp-validation-for="@Model.ToDate"></span>
     </div>
     <div class="form-group">
         <label><strong>Return Date:</strong></label>
-        <input class="form-control" id="returnDate" style="max-width: 300px" type="date" asp-for="@Model.ToDate" />
+        <input class="form-control" id="returnDate" style="max-width: 300px" type="date" asp-for="@Model.ToDate" value="@DateTime.Today" />
         <span asp-validation-for="@Model.FromDate"></span>
     </div>
     <input type="submit" />

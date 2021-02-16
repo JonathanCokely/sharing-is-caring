@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SharingIsCaring.Data;
 using SharingIsCaring.Models;
@@ -12,10 +13,12 @@ namespace SharingIsCaring.Controllers
     public class AssetRequestController : Controller
     {
         private readonly SharingDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public AssetRequestController(SharingDbContext dbContext)
+        public AssetRequestController(SharingDbContext dbContext, UserManager<IdentityUser> userManager)
         {
             _context = dbContext;
+            _userManager = userManager;
         }
         public IActionResult Index()
         {
@@ -35,6 +38,10 @@ namespace SharingIsCaring.Controllers
         {
             if (ModelState.IsValid)
             {
+                assetRequest.BorrowerId = _userManager.GetUserId(User);
+                _context.AssetRequests.Add(assetRequest);
+                Console.WriteLine(assetRequest);
+                _context.SaveChanges();
                 return Redirect("Index");
             }
 

@@ -17,6 +17,7 @@ namespace SharingIsCaring.Data
         public DbSet<AssetBrand> AssetBrands { get; set; }
         public DbSet<AssetAssetType> AssetAssetTypes { get; set; }
         public DbSet<AssetRequest> AssetRequests { get; set; }
+        public DbSet<AssetAssetRequest> AssetAssetRequests { get; set; }
 
         public SharingDbContext(DbContextOptions<SharingDbContext> options)
             : base(options)
@@ -32,11 +33,10 @@ namespace SharingIsCaring.Data
 
             builder.Entity<AssetBrand>()
                 .HasKey(ab => new { ab.AssetId, ab.BrandId });
-
             builder.Entity<AssetAssetType>()
                 .HasKey(aat => new { aat.AssetId, aat.AssetTypeId });
-            builder.Entity<AssetRequest>()
-                .HasKey(ar => new { ar.AssetId, ar.Id });
+            builder.Entity<AssetAssetRequest>()
+                .HasKey(aar => new { aar.AssetId, aar.AssetRequestId });
         }
     }
 }
