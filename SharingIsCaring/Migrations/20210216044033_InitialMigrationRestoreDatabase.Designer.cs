@@ -9,8 +9,8 @@ using SharingIsCaring.Data;
 namespace SharingIsCaring.Migrations
 {
     [DbContext(typeof(SharingDbContext))]
-    [Migration("20210215003511_BuildAssetRequestsTable")]
-    partial class BuildAssetRequestsTable
+    [Migration("20210216044033_InitialMigrationRestoreDatabase")]
+    partial class InitialMigrationRestoreDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -245,6 +245,21 @@ namespace SharingIsCaring.Migrations
                     b.ToTable("Assets");
                 });
 
+            modelBuilder.Entity("SharingIsCaring.Models.AssetAssetRequest", b =>
+                {
+                    b.Property<int>("AssetId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AssetRequestId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AssetId", "AssetRequestId");
+
+                    b.HasIndex("AssetRequestId");
+
+                    b.ToTable("AssetAssetRequests");
+                });
+
             modelBuilder.Entity("SharingIsCaring.Models.AssetAssetType", b =>
                 {
                     b.Property<int>("AssetId")
@@ -277,10 +292,11 @@ namespace SharingIsCaring.Migrations
 
             modelBuilder.Entity("SharingIsCaring.Models.AssetRequest", b =>
                 {
-                    b.Property<int>("AssetId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
+                    b.Property<int>("AssetId")
                         .HasColumnType("int");
 
                     b.Property<string>("Body")
@@ -292,16 +308,16 @@ namespace SharingIsCaring.Migrations
                     b.Property<DateTime>("FromDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("OwnerId")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("Subject")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<DateTime>("ToDate")
                         .HasColumnType("datetime(6)");
 
-                    b.HasKey("AssetId", "Id");
+                    b.HasKey("Id");
+
+                    b.HasIndex("AssetId");
 
                     b.ToTable("AssetRequests");
                 });
@@ -398,6 +414,21 @@ namespace SharingIsCaring.Migrations
                     b.HasOne("SharingIsCaring.Models.AssetType", "ItemType")
                         .WithMany()
                         .HasForeignKey("ItemTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SharingIsCaring.Models.AssetAssetRequest", b =>
+                {
+                    b.HasOne("SharingIsCaring.Models.Asset", "Asset")
+                        .WithMany()
+                        .HasForeignKey("AssetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SharingIsCaring.Models.AssetRequest", "AssetRequest")
+                        .WithMany()
+                        .HasForeignKey("AssetRequestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SharingIsCaring.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialMigrationRestoreDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,6 +45,32 @@ namespace SharingIsCaring.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AssetTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    TypeDescription = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AssetTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Brands",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Brands", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -153,6 +179,131 @@ namespace SharingIsCaring.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Assets",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    BrandId = table.Column<int>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    ItemTypeId = table.Column<int>(nullable: false),
+                    SerialNumber = table.Column<string>(nullable: true),
+                    OwnerId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Assets", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Assets_Brands_BrandId",
+                        column: x => x.BrandId,
+                        principalTable: "Brands",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Assets_AssetTypes_ItemTypeId",
+                        column: x => x.ItemTypeId,
+                        principalTable: "AssetTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AssetAssetTypes",
+                columns: table => new
+                {
+                    AssetId = table.Column<int>(nullable: false),
+                    AssetTypeId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AssetAssetTypes", x => new { x.AssetId, x.AssetTypeId });
+                    table.ForeignKey(
+                        name: "FK_AssetAssetTypes_Assets_AssetId",
+                        column: x => x.AssetId,
+                        principalTable: "Assets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AssetAssetTypes_AssetTypes_AssetTypeId",
+                        column: x => x.AssetTypeId,
+                        principalTable: "AssetTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AssetBrands",
+                columns: table => new
+                {
+                    AssetId = table.Column<int>(nullable: false),
+                    BrandId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AssetBrands", x => new { x.AssetId, x.BrandId });
+                    table.ForeignKey(
+                        name: "FK_AssetBrands_Assets_AssetId",
+                        column: x => x.AssetId,
+                        principalTable: "Assets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AssetBrands_Brands_BrandId",
+                        column: x => x.BrandId,
+                        principalTable: "Brands",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AssetRequests",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Subject = table.Column<string>(nullable: false),
+                    Body = table.Column<string>(nullable: true),
+                    AssetId = table.Column<int>(nullable: false),
+                    BorrowerId = table.Column<string>(nullable: true),
+                    ToDate = table.Column<DateTime>(nullable: false),
+                    FromDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AssetRequests", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AssetRequests_Assets_AssetId",
+                        column: x => x.AssetId,
+                        principalTable: "Assets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AssetAssetRequests",
+                columns: table => new
+                {
+                    AssetId = table.Column<int>(nullable: false),
+                    AssetRequestId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AssetAssetRequests", x => new { x.AssetId, x.AssetRequestId });
+                    table.ForeignKey(
+                        name: "FK_AssetAssetRequests_Assets_AssetId",
+                        column: x => x.AssetId,
+                        principalTable: "Assets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AssetAssetRequests_AssetRequests_AssetRequestId",
+                        column: x => x.AssetRequestId,
+                        principalTable: "AssetRequests",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -189,6 +340,36 @@ namespace SharingIsCaring.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AssetAssetRequests_AssetRequestId",
+                table: "AssetAssetRequests",
+                column: "AssetRequestId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AssetAssetTypes_AssetTypeId",
+                table: "AssetAssetTypes",
+                column: "AssetTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AssetBrands_BrandId",
+                table: "AssetBrands",
+                column: "BrandId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AssetRequests_AssetId",
+                table: "AssetRequests",
+                column: "AssetId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Assets_BrandId",
+                table: "Assets",
+                column: "BrandId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Assets_ItemTypeId",
+                table: "Assets",
+                column: "ItemTypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -209,10 +390,31 @@ namespace SharingIsCaring.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "AssetAssetRequests");
+
+            migrationBuilder.DropTable(
+                name: "AssetAssetTypes");
+
+            migrationBuilder.DropTable(
+                name: "AssetBrands");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "AssetRequests");
+
+            migrationBuilder.DropTable(
+                name: "Assets");
+
+            migrationBuilder.DropTable(
+                name: "Brands");
+
+            migrationBuilder.DropTable(
+                name: "AssetTypes");
         }
     }
 }

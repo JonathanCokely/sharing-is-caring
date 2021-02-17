@@ -9,16 +9,17 @@ namespace SharingIsCaring.Models
     public class AssetRequest
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Must enter a request subject")]
+        public string Subject { get; set; }
+        public string Body { get; set; }
+        [Required(ErrorMessage = "Must enter a desired checkout date")]
         public Asset Asset { get; set; }
         public int AssetId { get; set; }
         public string BorrowerId { get; set; }
-        [Required(ErrorMessage ="Must enter a request subject")]
-        public string Subject { get; set; }
-        public string Body { get; set; } 
-        [Required(ErrorMessage = "Must enter a desired checkout date")]
-        public DateTime ToDate { get; set; }
-        [Required(ErrorMessage = "Must enter a projected return date")]
+        [Required(ErrorMessage = "Must enter a requested checkout date")]
         public DateTime FromDate { get; set; }
+        [Required(ErrorMessage = "Must enter a projected return date")]
+        public DateTime ToDate { get; set; }
 
         public override string ToString()
         {

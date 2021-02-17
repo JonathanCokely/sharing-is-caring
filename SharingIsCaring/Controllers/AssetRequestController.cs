@@ -22,30 +22,40 @@ namespace SharingIsCaring.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            List<AssetRequest> assetRequestList = _context.AssetRequests.ToList();
+            return View(assetRequestList);
         }
 
 
         public IActionResult RequestAsset(string searchAsset)
         {
-            AssetRequest assetRequest = new AssetRequest();
-            assetRequest.Asset = _context.Assets.Where(x => x.Id.ToString()==searchAsset).FirstOrDefault();
-            return View(assetRequest);
+            RequestAssetViewModel requestAsset = new RequestAssetViewModel ();
+            Asset targetAsset = _context.Assets.Where(x => x.Id.ToString() == searchAsset).FirstOrDefault();
+            requestAsset.AssetId = targetAsset.Id;
+            requestAsset.Subject = $"Request to Borrow: {targetAsset.Description}";
+            return View(requestAsset);
         }
 
         [HttpPost]
-        public IActionResult ProcessAssetRequest(AssetRequest assetRequest)
+        public IActionResult ProcessAssetRequest(RequestAssetViewModel requestAsset)
         {
             if (ModelState.IsValid)
             {
-                assetRequest.BorrowerId = _userManager.GetUserId(User);
-                _context.AssetRequests.Add(assetRequest);
-                Console.WriteLine(assetRequest);
+                AssetRequest theRequest = new AssetRequest()
+                {
+                    Subject = requestAsset.Subject,
+                    Body = requestAsset.Body,
+                    AssetId = requestAsset.AssetId,
+                    BorrowerId = _userManager.GetUserId(User),
+                    FromDate = DateTime.Parse(requestAsset.FromDate),
+                    ToDate = DateTime.Parse(requestAsset.ToDate)
+                };
+                _context.AssetRequests.Add(theRequest);
                 _context.SaveChanges();
                 return Redirect("Index");
             }
 
-            return View("RequestAsset", assetRequest);
+            return View("RequestAsset", requestAsset);
         }
     }
 }
