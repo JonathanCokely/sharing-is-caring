@@ -20,13 +20,17 @@ namespace SharingIsCaring.Controllers
             _context = dbContext;
             _userManager = userManager;
         }
+
+        //Displays Asset Request lists on Request View
         public IActionResult Index()
         {
             List<AssetRequest> assetRequestList = _context.AssetRequests.ToList();
-            return View(assetRequestList);
+            List<Asset> assetList = _context.Assets.ToList();
+            AssetRequestIndexViewModel viewModel = new AssetRequestIndexViewModel(assetList, assetRequestList);
+            return View(viewModel);
         }
 
-
+        //Displays Asset Request form data in form fields
         public IActionResult RequestAsset(string searchAsset)
         {
             RequestAssetViewModel requestAsset = new RequestAssetViewModel ();
@@ -36,6 +40,7 @@ namespace SharingIsCaring.Controllers
             return View(requestAsset);
         }
 
+        //Posts Asset Request to the database
         [HttpPost]
         public IActionResult ProcessAssetRequest(RequestAssetViewModel requestAsset)
         {
@@ -57,5 +62,31 @@ namespace SharingIsCaring.Controllers
 
             return View("RequestAsset", requestAsset);
         }
+
+        //View the details of a particular request
+        public IActionResult ViewAssetRequest(string viewRequest)
+        {
+            AssetRequest theRequest = _context.AssetRequests.FirstOrDefault(x => x.Id.ToString() == viewRequest);
+            return View(theRequest);
+        }
+
+        //Convert Asset Request to Transfer Request
+        [HttpPost]
+        public IActionResult ApproveAssetRequest(string acceptId)
+        {
+            Console.WriteLine(acceptId);
+            return Redirect("Index");
+        }
+
+        //Reject Asset Request and return to Index
+        [HttpPost]
+        public IActionResult RejectAssetRequest(string rejectId)
+        {
+            AssetRequest theRequest = _context.AssetRequests.FirstOrDefault(x=>x.Id.ToString()==rejectId);
+            _context.AssetRequests.Remove(theRequest);
+            _context.SaveChanges();
+            return Redirect("Index");
+        }
+
     }
 }

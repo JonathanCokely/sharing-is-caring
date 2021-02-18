@@ -1,0 +1,16 @@
+﻿@model SharingIsCaring.Models.AssetRequest
+
+<div>
+    <h3>@Model.Subject</h3><br />
+    <h3>Additional Details:</h3>
+    <h4>@Model.Body</h4>
+    <br />
+    <div>
+        <form asp-controller="AssetRequest" asp-action="ApproveAssetRequest" method="post">
+            <button class="btn-success rounded" name="AcceptId" value="@Model.Id">Accept</button>
+        </form>
+        <form asp-controller="AssetRequest" asp-action="RejectAssetRequest" method="post">
+            <button class="btn-danger rounded" name="RejectId" value="@Model.Id">Reject</button>
+        </form>
+    </div>
+</div>
