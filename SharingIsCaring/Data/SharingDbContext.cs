@@ -18,6 +18,8 @@ namespace SharingIsCaring.Data
         public DbSet<AssetAssetType> AssetAssetTypes { get; set; }
         public DbSet<AssetRequest> AssetRequests { get; set; }
         public DbSet<AssetAssetRequest> AssetAssetRequests { get; set; }
+        public DbSet<TransferRequest> TransferRequests { get; set; }
+        public DbSet<AssetTransferRequest> AssetTransferRequests { get; set; }
 
         public SharingDbContext(DbContextOptions<SharingDbContext> options)
             : base(options)
@@ -37,6 +39,8 @@ namespace SharingIsCaring.Data
                 .HasKey(aat => new { aat.AssetId, aat.AssetTypeId });
             builder.Entity<AssetAssetRequest>()
                 .HasKey(aar => new { aar.AssetId, aar.AssetRequestId });
+            builder.Entity<AssetTransferRequest>()
+                .HasKey(atr => new { atr.AssetId, atr.TransferRequestId });
         }
     }
 }

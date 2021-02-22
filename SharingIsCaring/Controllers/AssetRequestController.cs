@@ -74,7 +74,7 @@ namespace SharingIsCaring.Controllers
         [HttpPost]
         public IActionResult ApproveAssetRequest(string acceptId)
         {
-            Console.WriteLine(acceptId);
+            TransferRequest theRequest = new TransferRequest();
             return Redirect("Index");
         }
 

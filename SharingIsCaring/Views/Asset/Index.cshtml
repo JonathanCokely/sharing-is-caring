@@ -17,6 +17,7 @@
             <th>Asset Description</th>
             <th>Asset Type</th>
             <th>Serial Number</th>
+            <th>Checkout Status</th>
         </tr>
 
         @foreach (Asset asset in Model)
@@ -29,6 +30,7 @@
                     <td>@asset.Description</td>
                     <td>@asset.ItemTypeId</td>
                     <td>@asset.SerialNumber</td>
+                    <td>Add Checkout Status Indicator</td>
                 </tr>
             }
         }

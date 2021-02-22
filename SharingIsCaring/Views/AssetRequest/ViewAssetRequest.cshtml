@@ -1,14 +1,18 @@
 ﻿@model SharingIsCaring.Models.AssetRequest
 
-<div>
-    <h3>@Model.Subject</h3><br />
-    <h3>Additional Details:</h3>
-    <h4>@Model.Body</h4>
-    <br />
-    <div>
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">@Model.Subject</h3><br />
+        <h3 class="card-title">Additional Details:</h3>
+        <p class="card-text">@Model.Body</p>
+        <h3>Requested Checkout Date: @Model.FromDate</h3>
+        <h3>Expected Return Date: @Model.ToDate</h3>
+    </div>
+    <div class="d-flex btn-group justify-content-center">
         <form asp-controller="AssetRequest" asp-action="ApproveAssetRequest" method="post">
             <button class="btn-success rounded" name="AcceptId" value="@Model.Id">Accept</button>
         </form>
+        &nbsp;
         <form asp-controller="AssetRequest" asp-action="RejectAssetRequest" method="post">
             <button class="btn-danger rounded" name="RejectId" value="@Model.Id">Reject</button>
         </form>

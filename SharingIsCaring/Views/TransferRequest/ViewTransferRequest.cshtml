@@ -1,0 +1,14 @@
+﻿<div>
+    <h3>Asset to be Transferred:</h3><br />
+    <h3>Expected Return Date:</h3><br />
+    <br />
+    <div class="btn-group">
+        <form asp-controller="AssetRequest" asp-action="TransferAsset" method="post">
+            <button class="btn-success rounded" name="AcceptId" value="">Transfer Asset</button>
+        </form>
+        &nbsp;
+        <form asp-controller="AssetRequest" asp-action="RejectTransfer" method="post">
+            <button class="btn-danger rounded" name="RejectId" value="">Cancel Transfer</button>
+        </form>
+    </div>
+</div>

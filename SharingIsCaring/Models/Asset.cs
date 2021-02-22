@@ -17,6 +17,8 @@ namespace SharingIsCaring.Models
         public string SerialNumber { get; set; }
         public string OwnerId { get; set; }
         //public int BorrowerId { get; set; }
+        //public bool Availabile { get; set; }
+
 
 
         public Asset(string description, string serialnumber)
