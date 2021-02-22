@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JC032926\\source\\repos\\sharing-is-caring\\SharingIsCaring\\SharingIsCaring.csproj": {}
+    "C:\\Users\\JC032926\\Source\\Repos\\sharing-is-caring\\SharingIsCaring\\SharingIsCaring.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JC032926\\source\\repos\\sharing-is-caring\\SharingIsCaring\\SharingIsCaring.csproj": {
+    "C:\\Users\\JC032926\\Source\\Repos\\sharing-is-caring\\SharingIsCaring\\SharingIsCaring.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JC032926\\source\\repos\\sharing-is-caring\\SharingIsCaring\\SharingIsCaring.csproj",
+        "projectUniqueName": "C:\\Users\\JC032926\\Source\\Repos\\sharing-is-caring\\SharingIsCaring\\SharingIsCaring.csproj",
         "projectName": "SharingIsCaring",
-        "projectPath": "C:\\Users\\JC032926\\source\\repos\\sharing-is-caring\\SharingIsCaring\\SharingIsCaring.csproj",
+        "projectPath": "C:\\Users\\JC032926\\Source\\Repos\\sharing-is-caring\\SharingIsCaring\\SharingIsCaring.csproj",
         "packagesPath": "C:\\Users\\JC032926\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JC032926\\source\\repos\\sharing-is-caring\\SharingIsCaring\\obj\\",
+        "outputPath": "C:\\Users\\JC032926\\Source\\Repos\\sharing-is-caring\\SharingIsCaring\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JC032926\\AppData\\Roaming\\NuGet\\NuGet.Config",

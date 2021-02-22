@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8O/ayhAmOFC2S2faWgfpdFnovUcQUE4XZJEF9XT784e8WeB+kBG+UCZ3TEVX5qikUAzXPgEKflqiA3EHnBbpWw==",
+  "dgSpecHash": "m0zsHydHtmgt9zTOzgF/KQTNPsNJKA5L14Qfzav7sQ17Uma74t2JHHMRArWdhR5pgwXWf7P8bdrQ5lkwZcS6bQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\JC032926\\source\\repos\\sharing-is-caring\\SharingIsCaring\\SharingIsCaring.csproj",
+  "projectFilePath": "C:\\Users\\JC032926\\Source\\Repos\\sharing-is-caring\\SharingIsCaring\\SharingIsCaring.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\JC032926\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

@@ -74,7 +74,19 @@ namespace SharingIsCaring.Controllers
         [HttpPost]
         public IActionResult ApproveAssetRequest(string acceptId)
         {
-            TransferRequest theRequest = new TransferRequest();
+            AssetRequest theAssetRequest = _context.AssetRequests.FirstOrDefault(x => x.Id.ToString() == acceptId);
+            Asset theAsset = _context.Assets.FirstOrDefault(x => x.Id == theAssetRequest.AssetId);
+            TransferRequest theRequest = new TransferRequest
+            {
+                AssetId = theAssetRequest.AssetId,
+                ExpectedReturnDate = theAssetRequest.ToDate,
+                BorrowerId = theAssetRequest.BorrowerId,
+                OwnerId = theAsset.OwnerId
+            };
+
+            _context.TransferRequests.Add(theRequest);
+            _context.AssetRequests.Remove(theAssetRequest);
+            _context.SaveChanges();
             return Redirect("Index");
         }
 
