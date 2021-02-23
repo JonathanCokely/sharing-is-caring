@@ -12,7 +12,6 @@ namespace SharingIsCaring.Models
         [Required(ErrorMessage = "Must enter a request subject")]
         public string Subject { get; set; }
         public string Body { get; set; }
-        [Required(ErrorMessage = "Must enter a desired checkout date")]
         public Asset Asset { get; set; }
         public int AssetId { get; set; }
         public string BorrowerId { get; set; }

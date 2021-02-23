@@ -21,8 +21,8 @@
             </tr>
         </thead>
         @foreach (AssetRequest request in Model.AssetRequestList)
-        {
-            @if (UserManager.GetUserId(User) == Model.AssetList.Find(x=>x.Id==request.Id).OwnerId)
+        { 
+            @if (UserManager.GetUserId(User) == Model.AssetList.Find(x => x.Id == request.AssetId).OwnerId)
             {
                 <tr>
                     <td>@request.AssetId</td>
@@ -37,7 +37,6 @@
                 </tr>
             }
         }
-
     </table>
 </div>
 <br /><br />
