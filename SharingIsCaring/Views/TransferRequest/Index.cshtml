@@ -1,4 +1,12 @@
-﻿<h1 class="d-flex justify-content-center jumbotron">Transfers</h1>
+﻿@using Microsoft.AspNetCore.Identity
+@using SharingIsCaring.Areas.Identity.Data
+@using SharingIsCaring.Areas.Identity.Pages
+
+@inject UserManager<IdentityUser> UserManager
+
+@model List<SharingIsCaring.Models.TransferRequest>
+
+<h1 class="d-flex justify-content-center jumbotron">Transfers</h1>
 <br />
 <h2>Pending Transfers</h2>
 <div class="d-flex justify-content-center">
@@ -6,18 +14,22 @@
         <thead>
             <tr>
                 <th>Asset</th>
-                <th>Requested Checkout Date</th>
                 <th>Expected Return Date</th>
                 <th> </th>
             </tr>
         </thead>
-        <tr>
-            <td>Example Asset</td>
-            <td>Example Checkout Date</td>
-            <td>Example Return Date</td>
-            <td><a asp-controller="TransferRequest" asp-action="ViewTransferRequest">View</a></td>
-
-        </tr>
+        @foreach (TransferRequest transfer in Model)
+        {
+            <tr>
+                <td>@transfer.AssetId</td>
+                <td>@transfer.ExpectedReturnDate</td>
+                <td>
+                    <form asp-controller="TransferRequest" asp-action="ViewTransferRequest" method="post">
+                        <button type="submit" name="ViewRequest" value="@transfer.Id">View</button>
+                    </form>
+                </td>
+            </tr>
+        }
     </table>
 </div>
 <br />

@@ -16,8 +16,10 @@ namespace SharingIsCaring.Models
         public int ItemTypeId { get; set; }
         public string SerialNumber { get; set; }
         public string OwnerId { get; set; }
-        //public int BorrowerId { get; set; }
-        //public bool Availabile { get; set; }
+        public string BorrowerId { get; set; }
+        public DateTime LastTransferDate { get; set; }
+        public DateTime LastReturnDate { get; set; }
+        public bool Availabile { get; set; }
 
 
 
