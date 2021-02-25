@@ -10,7 +10,7 @@
         </form>
         &nbsp;
         <form asp-controller="TransferRequest" asp-action="RejectTransfer" method="post">
-            <button class="btn-danger rounded" name="RejectId" value="">Cancel Transfer</button>
+            <button class="btn-danger rounded" name="RejectId" value="@Model.Id">Cancel Transfer</button>
         </form>
     </div>
 </div>

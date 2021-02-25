@@ -28,15 +28,22 @@ namespace SharingIsCaring.Controllers
             TransferRequest theRequest = _context.TransferRequests.FirstOrDefault(x => x.Id.ToString() == viewRequest);
             return View(theRequest);
         }
-
+        
+        //Complete Transfer Request and update Asset info
+        [HttpPost]
         public IActionResult TransferAsset()
         {
             return View();
         }
 
-        public IActionResult RejectTransfer()
+        //Reject Transfer Request and return to Index
+        [HttpPost]
+        public IActionResult RejectTransfer(string rejectId)
         {
-            return View();
+            TransferRequest theRequest = _context.TransferRequests.FirstOrDefault(x => x.Id.ToString() == rejectId);
+            _context.TransferRequests.Remove(theRequest);
+            _context.SaveChanges();
+            return Redirect("Index");
         }
     }
 }
