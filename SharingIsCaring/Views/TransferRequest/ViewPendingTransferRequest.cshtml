@@ -6,7 +6,7 @@
     <br />
     <div class="btn-group">
         <form asp-controller="TransferRequest" asp-action="TransferAsset" method="post">
-            <button class="btn-success rounded" name="AcceptId" value="">Transfer Asset</button>
+            <button class="btn-success rounded" name="AcceptId" value="@Model.Id">Transfer Asset</button>
         </form>
         &nbsp;
         <form asp-controller="TransferRequest" asp-action="RejectTransfer" method="post">

@@ -18,17 +18,20 @@
                 <th> </th>
             </tr>
         </thead>
-        @foreach (TransferRequest transfer in Model)
+        @foreach (TransferRequest transfer in Model.Where(x=>x.OwnerId == UserManager.GetUserId(User)))
         {
-            <tr>
-                <td>@transfer.AssetId</td>
-                <td>@transfer.ExpectedReturnDate</td>
-                <td>
-                    <form asp-controller="TransferRequest" asp-action="ViewTransferRequest" method="post">
-                        <button type="submit" name="ViewRequest" value="@transfer.Id">View</button>
-                    </form>
-                </td>
-            </tr>
+            @if (!transfer.Complete)
+            {
+                <tr>
+                    <td>@transfer.AssetId</td>
+                    <td>@transfer.ExpectedReturnDate</td>
+                    <td>
+                        <form asp-controller="TransferRequest" asp-action="ViewPendingTransferRequest" method="post">
+                            <button type="submit" name="ViewRequest" value="@transfer.Id">View</button>
+                        </form>
+                    </td>
+                </tr>
+            }
         }
     </table>
 </div>
@@ -44,10 +47,16 @@
                 <th>Expected Return Date</th>
             </tr>
         </thead>
-        <tr>
-            <td>Example Asset</td>
-            <td>Example Date of Transfer</td>
-            <td>Example Expected Return Date</td>
-        </tr>
+        @foreach (TransferRequest transfer in Model.Where(x=>x.OwnerId == UserManager.GetUserId(User)))
+        {
+            @if (transfer.Complete)
+            {
+                <tr>
+                    <td>@transfer.AssetId</td>
+                    <td>@transfer.TransferDate</td>
+                    <td>@transfer.ExpectedReturnDate</td>
+                </tr>
+            }
+        }
     </table>
 </div>

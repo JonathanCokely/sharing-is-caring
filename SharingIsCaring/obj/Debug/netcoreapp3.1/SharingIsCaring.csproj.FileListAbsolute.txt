@@ -107,4 +107,4 @@ C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netco
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\AssetRequest\RequestAsset.cshtml.g.cs
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\AssetRequest\ViewAssetRequest.cshtml.g.cs
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\TransferRequest\Index.cshtml.g.cs
-C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\TransferRequest\ViewTransferRequest.cshtml.g.cs
+C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\TransferRequest\ViewPendingTransferRequest.cshtml.g.cs

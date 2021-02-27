@@ -17,13 +17,15 @@ namespace SharingIsCaring.Controllers
             _context = context;
         }
 
+        //Displays pending TransferRequest list and completed Transfers
         public IActionResult Index()
         {
             List<TransferRequest> requestList = _context.TransferRequests.ToList();
             return View(requestList);
         }
 
-        public IActionResult ViewTransferRequest(string viewRequest)
+        //Displays the selected TransferRequest
+        public IActionResult ViewPendingTransferRequest(string viewRequest)
         {
             TransferRequest theRequest = _context.TransferRequests.FirstOrDefault(x => x.Id.ToString() == viewRequest);
             return View(theRequest);
@@ -31,9 +33,16 @@ namespace SharingIsCaring.Controllers
         
         //Complete Transfer Request and update Asset info
         [HttpPost]
-        public IActionResult TransferAsset()
+        public IActionResult TransferAsset(string acceptId)
         {
-            return View();
+            TransferRequest theRequest = _context.TransferRequests.FirstOrDefault(x => x.Id.ToString() == acceptId);
+            theRequest.TransferDate = DateTime.Now;
+            theRequest.Complete = true;
+            _context.Assets.FirstOrDefault(x => x.Id == theRequest.AssetId).LastTransferDate = DateTime.Now;
+            _context.Assets.FirstOrDefault(x => x.Id == theRequest.AssetId).BorrowerId = theRequest.BorrowerId;
+            _context.Assets.FirstOrDefault(x => x.Id == theRequest.AssetId).Availabile = false;
+            _context.SaveChanges();
+            return Redirect("Index");
         }
 
         //Reject Transfer Request and return to Index

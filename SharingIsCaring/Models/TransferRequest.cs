@@ -14,5 +14,6 @@ namespace SharingIsCaring.Models
         public DateTime ExpectedReturnDate { get; set; }
         public string BorrowerId { get; set; }
         public string OwnerId { get; set; }
+        public bool Complete { get; set; }
     }
 }
