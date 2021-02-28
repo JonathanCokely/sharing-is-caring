@@ -40,7 +40,7 @@ namespace SharingIsCaring.Controllers
             theRequest.Complete = true;
             _context.Assets.FirstOrDefault(x => x.Id == theRequest.AssetId).LastTransferDate = DateTime.Now;
             _context.Assets.FirstOrDefault(x => x.Id == theRequest.AssetId).BorrowerId = theRequest.BorrowerId;
-            _context.Assets.FirstOrDefault(x => x.Id == theRequest.AssetId).Availabile = false;
+            _context.Assets.FirstOrDefault(x => x.Id == theRequest.AssetId).Available = false;
             _context.SaveChanges();
             return Redirect("Index");
         }

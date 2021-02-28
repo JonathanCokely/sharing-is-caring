@@ -10,7 +10,7 @@
 <h1 class="d-flex justify-content-center jumbotron">Asset Information</h1>
 <br />
 <div class="container">
-    <h2 class="d-flex justify-content-center">My Assets</h2>
+    <h2 class="d-flex justify-content-center">My Active Assets</h2>
     <table class="table">
         <tr>
             <th>Brand Name</th>
@@ -18,9 +18,10 @@
             <th>Asset Type</th>
             <th>Serial Number</th>
             <th>Checkout Status</th>
+            <th> </th>
         </tr>
 
-        @foreach (Asset asset in Model)
+        @foreach (Asset asset in Model.Where(x => x.ActiveInd == true))
         {
             @if (asset.OwnerId == UserManager.GetUserId(User))
             {
@@ -30,10 +31,29 @@
         <td>@asset.Description</td>
         <td>@asset.ItemTypeId</td>
         <td>@asset.SerialNumber</td>
-        @if (!asset.Availabile)
+        @if (!asset.Available)
         {
-            <td>Checked Out</td>
+            <td>
+                Checked Out
+                <form asp-controller="Asset" asp-action="ChangeAssetStatus" method="post">
+                    <button class="btn-sm" type="submit" name="AssetId" value="@asset.Id">Change Status</button>
+                </form>
+            </td>
         }
+        else
+        {
+            <td>
+                Checked In
+                <form asp-controller="Asset" asp-action="ChangeAssetStatus" method="post">
+                    <button class="btn-sm" type="submit" name="AssetId" value="@asset.Id">Change Status</button>
+                </form>
+            </td>
+        }
+        <td>
+            <form asp-controller="Asset" asp-action="InactivateAsset" method="post">
+                <button class="btn-danger" type="submit" name="AssetId" value="@asset.Id">Inactivate</button>
+            </form>
+        </td>
     </tr>
             }
         }
@@ -45,27 +65,45 @@
     <a class="page-link" asp-controller="Asset" asp-action="Add">Add an asset</a>
     <a class="page-link" asp-controller="Brand" asp-action="Index">View brands</a>
     <a class="page-link" asp-controller="AssetType" asp-action="Index">View asset types</a>
+    <a class="page-link" asp-controller="Asset" asp-action="InactiveAssets">My Inactive Assets</a>
 </div>
 <br />
-<div class="container">
-    <h2 class="d-flex justify-content-center">Borrowed Assets</h2>
-    <table class="table-bordered">
-        <tr>
-            <th>Brand Name</th>
-            <th>Asset Description</th>
-            <th>Asset Type</th>
-            <th>Serial Number</th>
-            <th>Checkout Date</th>
-        </tr>
-        @foreach (Asset asset in Model.Where(x => x.BorrowerId == UserManager.GetUserId(User)))
-        {
+<br />
+@if (Model.Where(x => x.BorrowerId == UserManager.GetUserId(User)).Count() == 0)
+{
+    <div class="container text-center">
+        <h2>No borrowed assets!</h2>
+    </div>
+}
+
+else
+{
+    <div class="container">
+        <h2 class="d-flex justify-content-center">Borrowed Assets</h2>
+        <table class="table">
             <tr>
-                <td>@asset.BrandId</td>
-                <td>@asset.Description</td>
-                <td>@asset.ItemTypeId</td>
-                <td>@asset.SerialNumber</td>
-                <td>@asset.LastTransferDate</td>
+                <th>Brand Name</th>
+                <th>Asset Description</th>
+                <th>Asset Type</th>
+                <th>Serial Number</th>
+                <th>Checkout Date</th>
+                <th> </th>
             </tr>
-        }
-    </table>
-</div>
+            @foreach (Asset asset in Model.Where(x => x.BorrowerId == UserManager.GetUserId(User)))
+            {
+                <tr>
+                    <td>@asset.BrandId</td>
+                    <td>@asset.Description</td>
+                    <td>@asset.ItemTypeId</td>
+                    <td>@asset.SerialNumber</td>
+                    <td>@asset.LastTransferDate</td>
+                    <td>
+                        <form asp-controller="TransferRequest" asp-action="RequestReturnAsset" method="post">
+                            <button class="btn-primary" type="submit" name="AssetId" value="@asset.Id">Return Asset</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+}

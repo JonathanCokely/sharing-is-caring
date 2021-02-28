@@ -18,29 +18,31 @@ namespace SharingIsCaring.Controllers
 {
     public class AssetController : Controller
     {
-        private readonly SharingDbContext context;
+        private readonly SharingDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         public AssetController(SharingDbContext dbContext, UserManager<IdentityUser> userManager)
         {
-            context = dbContext;
+            _context = dbContext;
             _userManager = userManager;
         }
 
+        //Returns Asset Index view
         public IActionResult Index()
         {
-            List<Asset> assets = context.Assets.ToList();
+            List<Asset> assets = _context.Assets.ToList();
             return View(assets);
         }
 
-        
+        //User submits an asset to be added to their profile. Processed by ProcessAddAssetForm method
         public IActionResult Add()
         {
-            List<Brand> brands = context.Brands.ToList();
-            List<AssetType> assetTypes = context.AssetTypes.ToList();
+            List<Brand> brands = _context.Brands.ToList();
+            List<AssetType> assetTypes = _context.AssetTypes.ToList();
             AddAssetViewModel addAssetViewModel = new AddAssetViewModel(brands, assetTypes);
             return View(addAssetViewModel);
         }
 
+        //Performs model validation and posts valid model to the database
         [HttpPost]
         public IActionResult ProcessAddAssetForm(AddAssetViewModel addAssetViewModel)
         {
@@ -55,33 +57,76 @@ namespace SharingIsCaring.Controllers
                     OwnerId = _userManager.GetUserId(User)
                 };
 
-                context.Assets.Add(theAsset);
-                context.SaveChanges();
+                _context.Assets.Add(theAsset);
+                _context.SaveChanges();
 
                 return Redirect("/Asset");
             }
 
-            List<Brand> brands = context.Brands.ToList();
-            List<AssetType> assetTypes = context.AssetTypes.ToList();
+            List<Brand> brands = _context.Brands.ToList();
+            List<AssetType> assetTypes = _context.AssetTypes.ToList();
             AddAssetViewModel addNewViewModel = new AddAssetViewModel(brands, assetTypes);
 
             return View("Add", addNewViewModel);
         }
 
+        //Shifts the asset status between available and unavailable
+        public IActionResult ChangeAssetStatus(string assetId)
+        {
+            Asset theAsset = _context.Assets.FirstOrDefault(x => x.Id.ToString() == assetId);
+            if (theAsset.Available)
+            {
+                theAsset.Available = false;
+            }
+            else
+            {
+                theAsset.Available = true;
+            }
+            _context.SaveChanges();
+            return Redirect("Index");
+        }
+
+        //Displays view of inactive assets
+        public IActionResult InactiveAssets()
+        {
+            List<Asset> assets = _context.Assets.ToList();
+            return View(assets);
+        }
+
+        //Activates an asset from the user's inactive asset library
+        public IActionResult ActivateAsset(string assetId)
+        {
+            Asset theAsset = _context.Assets.FirstOrDefault(x => x.Id.ToString() == assetId);
+            theAsset.ActiveInd = true;
+            _context.SaveChanges();
+            return Redirect("./InactiveAssets");
+        }
+
+        //Inactivates an asset from the user's inactive asset library
+        public IActionResult InactivateAsset(string assetId)
+        {
+            Asset theAsset = _context.Assets.FirstOrDefault(x => x.Id.ToString() == assetId);
+            theAsset.ActiveInd = false;
+            _context.SaveChanges();
+            return Redirect("Index");
+        }
+
+        //Accepts parameteres to initiate search a list of assets
         public IActionResult Search()
         {
-            List<Brand> brands = context.Brands.ToList();
-            List<AssetType> assetTypes = context.AssetTypes.ToList();
+            List<Brand> brands = _context.Brands.ToList();
+            List<AssetType> assetTypes = _context.AssetTypes.ToList();
             List<Asset> assets = new List<Asset>();
             SearchAssetViewModel searchAssetViewModel = new SearchAssetViewModel(brands, assetTypes, assets);
             return View(searchAssetViewModel);
         }
 
+        //Returns a list of available assets meeting the criteria of the search
         public IActionResult Results(string searchSerialNumber, string searchDescription, string searchBrand, string searchItemType)
         {
-            List<Brand> brands = context.Brands.ToList();
-            List<AssetType> assetTypes = context.AssetTypes.ToList();
-            List<Asset> assets = context.Assets.ToList();
+            List<Brand> brands = _context.Brands.ToList();
+            List<AssetType> assetTypes = _context.AssetTypes.ToList();
+            List<Asset> assets = _context.Assets.Where(x => x.Available == true).ToList();
 
             //Filter results by searching serial number
             if (!string.IsNullOrEmpty(searchSerialNumber))
@@ -109,6 +154,15 @@ namespace SharingIsCaring.Controllers
 
             SearchAssetViewModel newSearchAssetViewModel = new SearchAssetViewModel(brands, assetTypes, assets);
             return View("Search", newSearchAssetViewModel);
+        }
+
+        //Return borrowed asset to owner
+        [HttpPost]
+        public IActionResult ReturnAsset(string assetId)
+        {
+            Asset theAsset = _context.Assets.FirstOrDefault(x => x.Id.ToString() == assetId);
+            //theAsset.LastReturnDate.
+            return Redirect("Index");
         }
     }
 }

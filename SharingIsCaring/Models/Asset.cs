@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,8 @@ namespace SharingIsCaring.Models
         public string BorrowerId { get; set; }
         public DateTime LastTransferDate { get; set; }
         public DateTime LastReturnDate { get; set; }
-        public bool Availabile { get; set; }
+        public bool Available { get; set; } = true;
+        public bool ActiveInd { get; set; } = true;
 
 
 
