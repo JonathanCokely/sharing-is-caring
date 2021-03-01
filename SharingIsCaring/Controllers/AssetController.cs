@@ -70,6 +70,16 @@ namespace SharingIsCaring.Controllers
             return View("Add", addNewViewModel);
         }
 
+        //View the selected Asset
+        public IActionResult ViewAsset(string assetId)
+        {
+            Asset theAsset = _context.Assets.FirstOrDefault(x => x.Id.ToString() == assetId);
+            Brand theBrand = _context.Brands.FirstOrDefault(x => x.Id == theAsset.BrandId);
+            AssetType theAssetType = _context.AssetTypes.FirstOrDefault(x => x.Id == theAsset.ItemTypeId);
+            ViewAssetViewModel viewAssetViewModel = new ViewAssetViewModel(theAsset,theAssetType,theBrand);
+            return View(viewAssetViewModel);
+        }
+
         //Shifts the asset status between available and unavailable
         public IActionResult ChangeAssetStatus(string assetId)
         {

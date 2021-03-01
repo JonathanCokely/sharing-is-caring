@@ -54,5 +54,11 @@ namespace SharingIsCaring.Controllers
             _context.SaveChanges();
             return Redirect("Index");
         }
+
+        //Complete an Asset Return Transfer Request and return to Index
+        public IActionResult ViewReturnRequest()
+        {
+            return Redirect("Return");
+        }
     }
 }

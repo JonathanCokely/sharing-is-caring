@@ -1,0 +1,17 @@
+﻿@model SharingIsCaring.ViewModels.ViewAssetViewModel
+
+<h1>Asset Profile</h1>
+<div>
+    <h3>Asset Id: @Model.Asset.Id</h3><br />
+    <h3>Description: @Model.Asset.Description</h3><br />
+    <h3>Brand: @Model.Brand.Name</h3><br />
+    <h3>Asset Type: @Model.AssetType.TypeDescription</h3><br />
+    @if (!Model.Asset.Available)
+    {
+        <h3>Status: Checked Out</h3>
+    }
+    else
+    {
+        <h3>Status: Checked In</h3>
+    }
+</div>
