@@ -7,7 +7,7 @@ document.getElementById("sendButton").disabled = true;
 
 connection.on("ReceiveMessage", function (user, message) {
     let msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    let encodedMsg = user + " says" + msg;
+    let encodedMsg = `${user} says ${msg}`;
     let li = document.createElement("li");
     li.textContent = encodedMsg;
     document.getElementById("messagesList").appendChild(li);
@@ -22,7 +22,14 @@ connection.start().then(function () {
 document.getElementById("sendButton").addEventListener("click", function (event) {
     let user = document.getElementById("userInput").value;
     let message = document.getElementById("messageInput").value;
-    connection.invoke("SendMessage", user, message).catch(function (err) {
+    let groupElement = document.getElementById("group");
+    let groupValue = groupElement.options[groupElement.selectedIndex].value;
+    let method = "SendMessage";
+    console.log(groupValue); 
+    if (groupValue == "Myself") {
+        method = "SendMessageToCaller";
+    }
+    connection.invoke(method, user, message).catch(function (err) {
         return console.error(err.toString());
     });
     event.preventDefault();
