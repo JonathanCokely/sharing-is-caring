@@ -38,7 +38,7 @@ else
                     <td>@asset.SerialNumber</td>
                     <td>
                         <form asp-controller="Asset" asp-action="ActivateAsset" method="post">
-                            <button class="btn-primary" type="submit" name="AssetId" value="@asset.Id">Activate Asset</button>
+                            <button class="btn btn-success" type="submit" name="AssetId" value="@asset.Id">Activate Asset</button>
                         </form>
                     </td>
                 </tr>

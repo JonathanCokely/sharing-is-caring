@@ -18,7 +18,7 @@ namespace SharingIsCaring.ViewModels
         public int ItemTypeId { get; set; }
         public List<SelectListItem> BrandList {get; set; } 
         public List<SelectListItem> AssetTypeList { get; set; }
-
+        [Required(ErrorMessage = "Must enter an identifier, or write 'unknown' if none exists")]
         public string SerialNumber { get; set; }
 
         public AddAssetViewModel(List<Brand> brands, List<AssetType> assetTypes)

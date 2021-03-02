@@ -15,7 +15,7 @@
         <tr>
             <th>Asset Description</th>
             <th>Serial Number</th>
-            <th>Checkout Status</th>
+            <th>Status</th>
             <th> </th>
         </tr>
 
@@ -31,23 +31,17 @@
         {
             <td>
                 Checked Out
-                <form asp-controller="Asset" asp-action="ChangeAssetStatus" method="post">
-                    <button class="btn-sm" type="submit" name="AssetId" value="@asset.Id">Change Status</button>
-                </form>
             </td>
         }
         else
         {
             <td>
                 Checked In
-                <form asp-controller="Asset" asp-action="ChangeAssetStatus" method="post">
-                    <button class="btn-sm" type="submit" name="AssetId" value="@asset.Id">Change Status</button>
-                </form>
             </td>
         }
         <td>
-            <form asp-controller="Asset" asp-action="InactivateAsset" method="post">
-                <button class="btn-danger" type="submit" name="AssetId" value="@asset.Id">Inactivate</button>
+            <form asp-controller="Asset" asp-action="ViewAsset" method="post">
+                <button class="btn btn-primary" type="submit" name="AssetId" value="@asset.Id">View</button>
             </form>
         </td>
     </tr>
@@ -58,10 +52,10 @@
 </div>
 <br />
 <div class="container d-flex justify-content-center btn-group">
-    <a class="page-link" asp-controller="Asset" asp-action="Add">Add an asset</a>
-    <a class="page-link" asp-controller="Brand" asp-action="Index">View brands</a>
-    <a class="page-link" asp-controller="AssetType" asp-action="Index">View asset types</a>
-    <a class="page-link" asp-controller="Asset" asp-action="InactiveAssets">My Inactive Assets</a>
+    <a class="btn page-link" asp-controller="Asset" asp-action="Add">Add an asset</a> &nbsp;
+    <a class="btn page-link" asp-controller="Brand" asp-action="Index">View brands</a> &nbsp;
+    <a class="btn page-link" asp-controller="AssetType" asp-action="Index">View asset types</a> &nbsp;
+    <a class="btn page-link" asp-controller="Asset" asp-action="InactiveAssets">My Inactive Assets</a>
 </div>
 <br />
 <br />
@@ -78,9 +72,7 @@ else
         <h2 class="d-flex justify-content-center">Borrowed Assets</h2>
         <table class="table">
             <tr>
-                <th>Brand Name</th>
                 <th>Asset Description</th>
-                <th>Asset Type</th>
                 <th>Serial Number</th>
                 <th>Checkout Date</th>
                 <th> </th>
@@ -88,14 +80,12 @@ else
             @foreach (Asset asset in Model.Where(x => x.BorrowerId == UserManager.GetUserId(User)))
             {
                 <tr>
-                    <td>@asset.BrandId</td>
                     <td>@asset.Description</td>
-                    <td>@asset.ItemTypeId</td>
                     <td>@asset.SerialNumber</td>
                     <td>@asset.LastTransferDate</td>
                     <td>
-                        <form asp-controller="TransferRequest" asp-action="RequestReturnAsset" method="post">
-                            <button class="btn-primary" type="submit" name="AssetId" value="@asset.Id">Return Asset</button>
+                        <form asp-controller="Asset" asp-action="ReturnAsset" method="post">
+                            <button class="btn btn-danger" type="submit" name="AssetId" value="@asset.Id">Return Asset</button>
                         </form>
                     </td>
                 </tr>

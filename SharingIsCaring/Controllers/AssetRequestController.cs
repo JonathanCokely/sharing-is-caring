@@ -63,6 +63,15 @@ namespace SharingIsCaring.Controllers
             return View("RequestAsset", requestAsset);
         }
 
+        //Cancel a pending asset request
+        public IActionResult CancelAssetRequest(string requestId)
+        {
+            AssetRequest theRequest = _context.AssetRequests.FirstOrDefault(x => x.Id.ToString() == requestId);
+            _context.AssetRequests.Remove(theRequest);
+            _context.SaveChanges();
+            return Redirect("Index");
+        }
+
         //View the details of a particular request
         public IActionResult ViewAssetRequest(string viewRequest)
         {

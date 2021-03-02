@@ -1,31 +1,31 @@
 ﻿@model SharingIsCaring.ViewModels.RequestAssetViewModel
 
 <h2>Request an Asset</h2>
-
-<form asp-controller="AssetRequest" asp-action="ProcessAssetRequest" method="post">
-    <div class="form-group">
-        <label><strong>Asset</strong></label>
-        <input class="form-control" style="max-width:100px" asp-for="@Model.AssetId" value="@Model.AssetId" />
-        <span asp-validation-for="@Model.AssetId"></span>
-    </div>
-    <div class="form-group">
-        <label><strong>Subject</strong></label>
-        <input class="form-control" style="max-width:800px" name="Subject" asp-for="@Model.Subject" value="@Model.Subject"/>
-        <span asp-validation-for="@Model.Subject"></span>
-    </div>
-    <div class="form-group">
-        <label><strong>Additional Details?</strong></label>
-        <textarea class="form-control" style="max-width: 800px" asp-for="@Model.Body"></textarea>
-    </div>
-    <div class="form-group">
-        <label><strong>Checkout Date:</strong></label>
-        <input class="form-control" style="max-width: 300px" type="date" asp-for="@Model.FromDate" value=""/>
-        <span asp-validation-for="@Model.ToDate"></span>
-    </div>
-    <div class="form-group">
-        <label><strong>Return Date:</strong></label>
-        <input class="form-control" style="max-width: 300px" type="date" asp-for="@Model.ToDate" value="" />
-        <span asp-validation-for="@Model.FromDate"></span>
-    </div>
-    <input type="submit" />
-</form>
+<div class="container">
+    <form asp-controller="AssetRequest" asp-action="ProcessAssetRequest" method="post">
+        <div class="form-group">
+            <input type="hidden" asp-for="@Model.AssetId" value="@Model.AssetId" />
+            <span asp-validation-for="@Model.AssetId"></span>
+        </div>
+        <div class="form-group">
+            <label><strong>Subject</strong></label>
+            <input class="form-control" style="max-width:800px" name="Subject" asp-for="@Model.Subject" value="@Model.Subject" />
+            <span asp-validation-for="@Model.Subject"></span>
+        </div>
+        <div class="form-group">
+            <label><strong>Additional Details?</strong></label>
+            <textarea class="form-control" style="max-width: 800px" asp-for="@Model.Body"></textarea>
+        </div>
+        <div class="form-group">
+            <label><strong>Checkout Date:</strong></label>
+            <input class="form-control" style="max-width: 300px" type="date" asp-for="@Model.FromDate" value="" />
+            <span asp-validation-for="@Model.ToDate"></span>
+        </div>
+        <div class="form-group">
+            <label><strong>Return Date:</strong></label>
+            <input class="form-control" style="max-width: 300px" type="date" asp-for="@Model.ToDate" value="" />
+            <span asp-validation-for="@Model.FromDate"></span>
+        </div>
+        <input class="btn" type="submit" />
+    </form>
+</div>

@@ -8,25 +8,22 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-        @*<li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">My Profile</a>
-            </li>*@
         <li class="nav-item">
-            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+            <a id="manage" class="nav-link navbar-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
         </li>
         <li class="nav-item">
             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                <button id="logout" type="submit" class="nav-link btn btn-link navbar-dark">Logout</button>
             </form>
         </li>
     }
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a class="nav-link navbar-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            <a class="nav-link navbar-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
         </li>
     }
 </ul>
@@ -35,16 +32,16 @@
 {
 <ul class="navbar-nav flex-grow-1 justify-content-center">
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Asset" asp-action="Index">My Assets</a>
+        <a class="nav-link navbar-dark" asp-area="" asp-controller="Asset" asp-action="Index">My Assets</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Asset" asp-action="Search">Search</a>
+        <a class="nav-link navbar-dark" asp-area="" asp-controller="Asset" asp-action="Search">Search</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="AssetRequest" asp-action="Index">Requests</a>
+        <a class="nav-link navbar-dark" asp-area="" asp-controller="AssetRequest" asp-action="Index">Requests</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="TransferRequest" asp-action="Index">Transfers</a>
+        <a class="nav-link navbar-dark" asp-area="" asp-controller="TransferRequest" asp-action="Index">Transfers</a>
     </li>
 </ul>
 }

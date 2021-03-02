@@ -1,16 +1,17 @@
-﻿@model SharingIsCaring.Models.TransferRequest
+﻿@model SharingIsCaring.ViewModels.TransferAssetViewModel
 
-<div>
-    <h3>Asset to be Transferred: @Model.AssetId</h3><br />
-    <h3>Expected Return Date: @Model.ExpectedReturnDate</h3><br />
+<div class="container">
+    <h3 class="d-flex justify-content-center">Asset to be Transferred: @Model.Asset.Description</h3>
+    <h3 class="d-flex justify-content-center">Expected Return Date: @Model.TransferRequest.ExpectedReturnDate</h3>
     <br />
-    <div class="btn-group">
+    <br />
+    <div class="d-flex justify-content-center btn-group">
         <form asp-controller="TransferRequest" asp-action="TransferAsset" method="post">
-            <button class="btn-success rounded" name="AcceptId" value="@Model.Id">Transfer Asset</button>
+            <button class="btn btn-success" name="AcceptId" value="@Model.TransferRequest.Id">Transfer Asset</button>
         </form>
         &nbsp;
         <form asp-controller="TransferRequest" asp-action="RejectTransfer" method="post">
-            <button class="btn-danger rounded" name="RejectId" value="@Model.Id">Cancel Transfer</button>
+            <button class="btn btn-danger" name="RejectId" value="@Model.TransferRequest.Id">Cancel Transfer</button>
         </form>
     </div>
 </div>

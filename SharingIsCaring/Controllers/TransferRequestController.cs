@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SharingIsCaring.Data;
 using SharingIsCaring.Models;
+using SharingIsCaring.ViewModels;
 
 namespace SharingIsCaring.Controllers
 {
@@ -28,7 +29,9 @@ namespace SharingIsCaring.Controllers
         public IActionResult ViewPendingTransferRequest(string viewRequest)
         {
             TransferRequest theRequest = _context.TransferRequests.FirstOrDefault(x => x.Id.ToString() == viewRequest);
-            return View(theRequest);
+            Asset theAsset = _context.Assets.FirstOrDefault(x => x.Id == theRequest.AssetId);
+            TransferAssetViewModel theViewModel = new TransferAssetViewModel(theRequest, theAsset);
+            return View(theViewModel);
         }
         
         //Complete Transfer Request and update Asset info

@@ -23,8 +23,6 @@ namespace SharingIsCaring.Models
         public bool Available { get; set; } = true;
         public bool ActiveInd { get; set; } = true;
 
-
-
         public Asset(string description, string serialnumber)
         {
             Description = description;

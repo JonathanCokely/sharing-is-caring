@@ -1,54 +1,56 @@
 ﻿@model SharingIsCaring.ViewModels.SearchAssetViewModel
 
-<h2>Search Assets:</h2>
+<div class="container">
+    <h2>Search Assets:</h2>
 
-<form asp-controller="Asset" asp-action="Results" method="get">
-    <div class="form-group">
-        <span>
-            <label><strong>Brand Name</strong></label>
-            <select class="form-control" style="max-width: 500px" asp-for="SearchBrand" asp-items="Model.BrandList">
-                 <option value="">All</option>
-            </select>
-            <label><strong>Asset Type</strong></label>
-            <select class="form-control" style="max-width:500px" asp-for="SearchItemType" asp-items="Model.AssetTypeList">
-                 <option value="">All</option>
-            </select>
-            <label><strong>Description</strong></label>
-            <input class="form-control" style="max-width:500px" name="searchDescription" />
-            <label><strong>Serial Number</strong></label>
-            <input class="form-control" style="max-width:500px" name="searchSerialNumber" />
-        </span>
-    </div>
-    <input type="submit" value="search" />
-</form>
+    <form asp-controller="Asset" asp-action="Results" method="get">
+        <div class="form-group">
+            <span>
+                <label><strong>Brand Name</strong></label>
+                <select class="form-control" style="max-width: 500px" asp-for="SearchBrand" asp-items="Model.BrandList">
+                    <option value="">All</option>
+                </select>
+                <label><strong>Asset Type</strong></label>
+                <select class="form-control" style="max-width:500px" asp-for="SearchItemType" asp-items="Model.AssetTypeList">
+                    <option value="">All</option>
+                </select>
+                <label><strong>Description</strong></label>
+                <input class="form-control" style="max-width:500px" name="searchDescription" />
+                <label><strong>Serial Number</strong></label>
+                <input class="form-control" style="max-width:500px" name="searchSerialNumber" />
+            </span>
+        </div>
+        <input class="btn btn-dark" type="submit" value="Search" />
+    </form>
 
-<br />
+    <br />
 
-@if (Model.AssetList.Count > 0)
-{
-    <h3>Results:</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Brand</th>
-                <th>Description</th>
-                <th>Item Type</th>
-                <th> </th>
-            </tr>
-        </thead>
-        @foreach (var asset in Model.AssetList)
-        {
-            <tr>
-                <td>@asset.BrandName.ToString()</td>
-                <td>@asset.Description</td>
-                <td>@asset.ItemType.ToString()</td>
-                <td>
-                    <form asp-controller="AssetRequest" asp-action="RequestAsset" method="post">
-                        <button class="btn-link" type="submit" name="SearchAsset" value="@asset.Id">Request</button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </table>
-}
+    @if (Model.AssetList.Count > 0)
+    {
+        <h3>Results:</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Description</th>
+                    <th>Item Type</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            @foreach (var asset in Model.AssetList)
+            {
+                <tr>
+                    <td>@asset.BrandName.ToString()</td>
+                    <td>@asset.Description</td>
+                    <td>@asset.ItemType.ToString()</td>
+                    <td>
+                        <form asp-controller="AssetRequest" asp-action="RequestAsset" method="post">
+                            <button class="btn btn-primary" type="submit" name="SearchAsset" value="@asset.Id">Request</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
 
+</div>

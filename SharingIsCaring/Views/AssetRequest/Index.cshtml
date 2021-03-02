@@ -31,7 +31,7 @@
                     <td>@request.ToDate.ToString()</td>
                     <td>
                         <form asp-controller="AssetRequest" asp-action="ViewAssetRequest" method="post">
-                            <button type="submit" name="ViewRequest" value="@request.Id">View</button>
+                            <button class="btn btn-primary" type="submit" name="ViewRequest" value="@request.Id">View</button>
                         </form>
                     </td>
                 </tr>
@@ -40,7 +40,7 @@
     </table>
 </div>
 <br /><br />
-<h2 class="d-flex justify-content-center">Submitted Requests</h2>
+<h2 class="d-flex justify-content-center">My Pending Requests</h2>
 <div class="d-flex justify-content-center">
     <table class="table">
         <thead>
@@ -60,6 +60,11 @@
                     <td>@request.Subject</td>
                     <td>@request.FromDate.ToString()</td>
                     <td>@request.ToDate.ToString()</td>
+                    <td>
+                        <form asp-controller="AssetRequest" asp-action="CancelAssetRequest" method="post">
+                            <button class="btn btn-danger" type="submit" name="RequestId" value="@request.Id">Cancel</button>
+                        </form>
+                    </td>
                 </tr>
             }
         }

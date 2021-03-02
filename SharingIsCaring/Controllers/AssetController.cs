@@ -121,7 +121,7 @@ namespace SharingIsCaring.Controllers
             return Redirect("Index");
         }
 
-        //Accepts parameteres to initiate search a list of assets
+        //Returns search window
         public IActionResult Search()
         {
             List<Brand> brands = _context.Brands.ToList();
@@ -166,12 +166,24 @@ namespace SharingIsCaring.Controllers
             return View("Search", newSearchAssetViewModel);
         }
 
-        //Return borrowed asset to owner
+        //Generate request to return borrowed asset to owner
         [HttpPost]
         public IActionResult ReturnAsset(string assetId)
         {
             Asset theAsset = _context.Assets.FirstOrDefault(x => x.Id.ToString() == assetId);
-            //theAsset.LastReturnDate.
+            TransferRequest theRequest = new TransferRequest
+            {
+                Asset = theAsset,
+                AssetId = theAsset.Id,
+                TransferDate = DateTime.Now,
+                ExpectedReturnDate = DateTime.Now,
+                BorrowerId = _userManager.GetUserId(User),
+                OwnerId = theAsset.OwnerId,
+                Complete = false,
+                ReturnRequest = true
+            };
+            _context.TransferRequests.Add(theRequest);
+            _context.SaveChanges();
             return Redirect("Index");
         }
     }

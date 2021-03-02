@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharingIsCaring.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,10 +9,14 @@ namespace SharingIsCaring.ViewModels
 {
     public class TransferAssetViewModel
     {
-        public int TransferRequestId { get; set; }
-        public int AssetId { get; set; }
-        public string ExpectedReturnDateTime { get; set; }
-        public string BorrowerId { get; set; }
-        public string OwnerId { get; set; }
+        public TransferRequest TransferRequest { get; set; }
+        public Asset Asset { get; set; }
+
+        public TransferAssetViewModel(TransferRequest theRequest, Asset theAsset)
+        {
+            TransferRequest = theRequest;
+            Asset = theAsset;
+        }
+        public TransferAssetViewModel() { }
     }
 }
