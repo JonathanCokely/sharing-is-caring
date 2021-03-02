@@ -58,10 +58,31 @@ namespace SharingIsCaring.Controllers
             return Redirect("Index");
         }
 
-        //Complete an Asset Return Transfer Request and return to Index
-        public IActionResult ViewReturnRequest()
+        //View an Asset Return Transfer Request
+        public IActionResult ViewReturnRequest(string requestId)
         {
-            return Redirect("Return");
+            TransferRequest theRequest = _context.TransferRequests.FirstOrDefault(x => x.Id.ToString() == requestId);
+            Asset theAsset = _context.Assets.FirstOrDefault(x => x.Id == theRequest.AssetId);
+            TransferAssetViewModel theViewModel = new TransferAssetViewModel(theRequest, theAsset);
+            return View(theViewModel);
+        }
+
+        //Accept an asset return transfer request and return to the Index
+        [HttpPost]
+        public IActionResult AcceptReturn(string requestId)
+        {
+            TransferRequest theRequest = _context.TransferRequests.FirstOrDefault(x => x.Id.ToString() == requestId);
+            Asset theAsset = _context.Assets.FirstOrDefault(x => x.Id == theRequest.AssetId);
+            theAsset.LastReturnDate = DateTime.Now;
+            theAsset.LastTransferDate = DateTime.Now;
+            theAsset.BorrowerId = null;
+            theAsset.Available = true;
+            foreach (TransferRequest request in _context.TransferRequests.Where(x => x.AssetId == theAsset.Id))
+            {
+                _context.TransferRequests.Remove(request);
+            }
+            _context.SaveChanges();
+            return Redirect("Index");
         }
     }
 }

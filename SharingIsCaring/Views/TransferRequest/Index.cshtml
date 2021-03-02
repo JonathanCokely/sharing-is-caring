@@ -20,7 +20,7 @@
         </thead>
         @foreach (TransferRequest transfer in Model.Where(x=>x.OwnerId == UserManager.GetUserId(User)))
         {
-            @if (!transfer.Complete)
+            @if (!transfer.Complete && !transfer.ReturnRequest)
             {
                 <tr>
                     <td>@transfer.AssetId</td>
@@ -42,14 +42,29 @@
         <thead>
             <tr>
                 <th>Asset</th>
-                <th>Accept Return</th>
+                <th>Date of Return Request</th>
                 <th> </th>
             </tr>
         </thead>
+        @foreach (TransferRequest transfer in Model.Where(x => x.OwnerId == UserManager.GetUserId(User)))
+        {
+            @if (transfer.ReturnRequest)
+                {
+                    <tr>
+                        <td>@transfer.AssetId</td>
+                        <td>@transfer.ExpectedReturnDate</td>
+                        <td>
+                            <form asp-controller="TransferRequest" asp-action="ViewReturnRequest" method="post">
+                                <button class="btn btn-primary" type="submit" name="RequestId" value="@transfer.Id">View</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+        }
     </table>
 </div>
 <br />
-<h2 class="d-flex justify-content-center">Completed Transfers</h2>
+<h2 class="d-flex justify-content-center">Loaned Out</h2>
 <div class="d-flex justify-content-center">
     <table class="table">
         <thead>

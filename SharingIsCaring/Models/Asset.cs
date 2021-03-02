@@ -22,6 +22,7 @@ namespace SharingIsCaring.Models
         public DateTime LastReturnDate { get; set; }
         public bool Available { get; set; } = true;
         public bool ActiveInd { get; set; } = true;
+        public bool ReturnRequested { get; set; } = false;
 
         public Asset(string description, string serialnumber)
         {

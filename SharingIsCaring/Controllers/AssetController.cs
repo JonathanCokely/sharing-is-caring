@@ -173,9 +173,8 @@ namespace SharingIsCaring.Controllers
             Asset theAsset = _context.Assets.FirstOrDefault(x => x.Id.ToString() == assetId);
             TransferRequest theRequest = new TransferRequest
             {
-                Asset = theAsset,
                 AssetId = theAsset.Id,
-                TransferDate = DateTime.Now,
+                TransferDate = theAsset.LastTransferDate,
                 ExpectedReturnDate = DateTime.Now,
                 BorrowerId = _userManager.GetUserId(User),
                 OwnerId = theAsset.OwnerId,
@@ -183,6 +182,7 @@ namespace SharingIsCaring.Controllers
                 ReturnRequest = true
             };
             _context.TransferRequests.Add(theRequest);
+            theAsset.ReturnRequested = true;
             _context.SaveChanges();
             return Redirect("Index");
         }

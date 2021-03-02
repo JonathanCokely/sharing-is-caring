@@ -75,20 +75,29 @@ else
                 <th>Asset Description</th>
                 <th>Serial Number</th>
                 <th>Checkout Date</th>
-                <th> </th>
+                <th>Return Requested</th>
             </tr>
             @foreach (Asset asset in Model.Where(x => x.BorrowerId == UserManager.GetUserId(User)))
             {
-                <tr>
-                    <td>@asset.Description</td>
-                    <td>@asset.SerialNumber</td>
-                    <td>@asset.LastTransferDate</td>
-                    <td>
-                        <form asp-controller="Asset" asp-action="ReturnAsset" method="post">
-                            <button class="btn btn-danger" type="submit" name="AssetId" value="@asset.Id">Return Asset</button>
-                        </form>
-                    </td>
-                </tr>
+        <tr>
+            <td>@asset.Description</td>
+            <td>@asset.SerialNumber</td>
+            <td>@asset.LastTransferDate</td>
+            @if (!asset.ReturnRequested)
+            {
+                <td>
+                    <form asp-controller="Asset" asp-action="ReturnAsset" method="post">
+                        <button class="btn btn-danger" type="submit" name="AssetId" value="@asset.Id">Return Asset</button>
+                    </form>
+                </td>
+            }
+            else
+            {
+                <td style="color:red">
+                    <em>Request in Progress</em>
+                </td>
+            }
+        </tr>
             }
         </table>
     </div>
