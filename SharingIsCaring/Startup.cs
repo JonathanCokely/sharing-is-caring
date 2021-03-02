@@ -52,10 +52,8 @@ namespace SharingIsCaring
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
             app.UseAuthentication();
-            //app.UseMvc();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

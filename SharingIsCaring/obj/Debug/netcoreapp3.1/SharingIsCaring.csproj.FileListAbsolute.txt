@@ -111,3 +111,5 @@ C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netco
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\Asset\InactiveAssets.cshtml.g.cs
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\TransferRequest\ViewReturnRequest.cshtml.g.cs
 C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\Asset\ViewAsset.cshtml.g.cs
+C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\JC032926\Source\Repos\sharing-is-caring\SharingIsCaring\obj\Debug\netcoreapp3.1\Razor\Views\Message\Index.cshtml.g.cs
